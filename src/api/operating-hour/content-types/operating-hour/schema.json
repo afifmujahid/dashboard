@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "operating_hours",
+  "info": {
+    "singularName": "operating-hour",
+    "pluralName": "operating-hours",
+    "displayName": "RestaurantOperatingHour",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sundayFrom": {
+      "type": "time",
+      "required": false
+    },
+    "sundayTo": {
+      "type": "time"
+    },
+    "mondayFrom": {
+      "type": "time",
+      "required": false
+    },
+    "mondayTo": {
+      "type": "time",
+      "required": false
+    },
+    "tuesdayFrom": {
+      "type": "time",
+      "required": false
+    },
+    "tuesdayTo": {
+      "type": "time",
+      "required": false
+    },
+    "wednesdayFrom": {
+      "type": "time",
+      "required": false
+    },
+    "wednesdayTo": {
+      "type": "time",
+      "required": false
+    },
+    "thursdayFrom": {
+      "type": "time",
+      "required": false
+    },
+    "thursdayTo": {
+      "type": "time",
+      "required": false
+    },
+    "fridayFrom": {
+      "type": "time",
+      "required": false
+    },
+    "fridayTo": {
+      "type": "time",
+      "required": false
+    },
+    "saturdayFrom": {
+      "type": "time"
+    },
+    "saturdayTo": {
+      "type": "time"
+    },
+    "restaurant": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::restaurant.restaurant",
+      "mappedBy": "operatingHour"
+    }
+  }
+}

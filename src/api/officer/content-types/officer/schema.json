@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "officers",
+  "info": {
+    "singularName": "officer",
+    "pluralName": "officers",
+    "displayName": "ReviewOfficer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 150
+    },
+    "membershipNo": {
+      "type": "string",
+      "required": false,
+      "maxLength": 150
+    },
+    "phone": {
+      "type": "string",
+      "required": false,
+      "maxLength": 150
+    },
+    "email": {
+      "type": "email",
+      "required": false
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

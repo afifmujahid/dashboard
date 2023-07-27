@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "employees",
+  "info": {
+    "singularName": "employee",
+    "pluralName": "employees",
+    "displayName": "RestaurantEmployee",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "managementMuslim": {
+      "type": "integer",
+      "required": true
+    },
+    "productionMuslim": {
+      "type": "integer",
+      "required": true
+    },
+    "managementNonMuslim": {
+      "type": "integer",
+      "required": true
+    },
+    "productionNonMuslim": {
+      "type": "integer",
+      "required": true
+    },
+    "restaurant": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::restaurant.restaurant",
+      "mappedBy": "employee"
+    }
+  }
+}

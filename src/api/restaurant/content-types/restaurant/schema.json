@@ -1,0 +1,201 @@
+{
+  "kind": "collectionType",
+  "collectionName": "restaurants",
+  "info": {
+    "singularName": "restaurant",
+    "pluralName": "restaurants",
+    "displayName": "Restaurant",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "address": {
+      "pluginOptions": {},
+      "type": "text"
+    },
+    "phone": {
+      "pluginOptions": {},
+      "type": "string",
+      "required": true,
+      "maxLength": 150
+    },
+    "name": {
+      "pluginOptions": {},
+      "type": "string",
+      "maxLength": 150,
+      "required": true
+    },
+    "status": {
+      "pluginOptions": {},
+      "type": "enumeration",
+      "enum": [
+        "Bumiputera",
+        "Non-Bumiputera"
+      ],
+      "required": true
+    },
+    "registrationName": {
+      "type": "string",
+      "maxLength": 150,
+      "required": true
+    },
+    "registrationNo": {
+      "type": "string",
+      "required": true,
+      "maxLength": 150
+    },
+    "latitude": {
+      "type": "float",
+      "required": false
+    },
+    "longitude": {
+      "type": "float",
+      "required": false
+    },
+    "numberOfShift": {
+      "type": "integer"
+    },
+    "revenue": {
+      "type": "text",
+      "maxLength": 300
+    },
+    "businessType": {
+      "type": "enumeration",
+      "enum": [
+        "Production",
+        "Food and Beverages",
+        "Distributor/Trader",
+        "Service Provider",
+        "Others"
+      ],
+      "required": true
+    },
+    "industryType": {
+      "type": "enumeration",
+      "enum": [
+        "Micro Industry",
+        "Small Industry",
+        "Medium Industry",
+        "Multinational"
+      ]
+    },
+    "productMarket": {
+      "type": "enumeration",
+      "enum": [
+        "Local",
+        "International"
+      ]
+    },
+    "employee": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::employee.employee",
+      "inversedBy": "restaurant"
+    },
+    "keyPersonnels": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::key-personnel.key-personnel",
+      "mappedBy": "restaurant"
+    },
+    "operatingHour": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::operating-hour.operating-hour",
+      "inversedBy": "restaurant"
+    },
+    "supportingDocuments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::supporting-document.supporting-document",
+      "mappedBy": "restaurant"
+    },
+    "supportingImages": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::supporting-image.supporting-image",
+      "mappedBy": "restaurant"
+    },
+    "menus": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::menu.menu",
+      "mappedBy": "restaurant"
+    },
+    "ingredients": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ingredient.ingredient",
+      "mappedBy": "restaurant"
+    },
+    "isFinalized": {
+      "type": "boolean",
+      "default": false
+    },
+    "district": {
+      "type": "string",
+      "required": true,
+      "maxLength": 150
+    },
+    "postcode": {
+      "type": "string",
+      "required": true,
+      "maxLength": 150
+    },
+    "city": {
+      "type": "string",
+      "required": true,
+      "default": "city",
+      "maxLength": 150
+    },
+    "state": {
+      "type": "string",
+      "required": true,
+      "maxLength": 150
+    },
+    "publishedBy": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "restaurants"
+    },
+    "cleanlinesses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cleanliness.cleanliness",
+      "mappedBy": "restaurant"
+    },
+    "email": {
+      "type": "email"
+    },
+    "officerInCharge": {
+      "type": "string",
+      "required": false,
+      "maxLength": 150
+    },
+    "serialNumber": {
+      "type": "string",
+      "maxLength": 150
+    },
+    "auditAppointments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::audit-appointment.audit-appointment",
+      "mappedBy": "restaurant"
+    },
+    "auditStatus": {
+      "type": "enumeration",
+      "enum": [
+        "PendingRegistration",
+        "RegistrationCompleted",
+        "ReviewDocument",
+        "AuditInspection",
+        "Certified"
+      ],
+      "default": "PendingRegistration"
+    }
+  }
+}

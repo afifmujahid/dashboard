@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "common_ingredients",
+  "info": {
+    "singularName": "common-ingredient",
+    "pluralName": "common-ingredients",
+    "displayName": "RestaurantCommonIngredient",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "maxLength": 150,
+      "required": true
+    },
+    "scientificName": {
+      "type": "string",
+      "required": false,
+      "maxLength": 150
+    },
+    "ingredientSource": {
+      "type": "enumeration",
+      "enum": [
+        "Animal",
+        "Chemical",
+        "Plants",
+        "Natural"
+      ],
+      "required": true
+    },
+    "manufacturerName": {
+      "type": "string",
+      "required": true,
+      "maxLength": 150
+    },
+    "manufacturerAddress": {
+      "type": "text",
+      "required": false,
+      "maxLength": 300
+    },
+    "halalCertificate": {
+      "type": "enumeration",
+      "enum": [
+        "Yes",
+        "No"
+      ],
+      "required": true
+    },
+    "manufacturerCountry": {
+      "type": "string",
+      "required": true,
+      "maxLength": 150
+    },
+    "certificateExpiryDate": {
+      "type": "date",
+      "required": false
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "New Ingredient",
+        "Existing Ingredient",
+        "New Supplier"
+      ],
+      "required": true
+    }
+  }
+}

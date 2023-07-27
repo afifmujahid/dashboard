@@ -1,0 +1,82 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cleanlinesses",
+  "info": {
+    "singularName": "cleanliness",
+    "pluralName": "cleanlinesses",
+    "displayName": "RestaurantCleanliness",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "cleanKitchen": {
+      "type": "boolean",
+      "default": false
+    },
+    "cleanDiningArea": {
+      "type": "boolean",
+      "default": false
+    },
+    "cleanStoragePlace": {
+      "type": "boolean",
+      "default": false
+    },
+    "cleanToilet": {
+      "type": "boolean",
+      "default": false
+    },
+    "equipWaterPipe": {
+      "type": "boolean",
+      "default": false
+    },
+    "equipSink": {
+      "type": "boolean",
+      "default": false
+    },
+    "equipTissueOrHandDryer": {
+      "type": "boolean",
+      "default": false
+    },
+    "equipDustbin": {
+      "type": "boolean",
+      "default": false
+    },
+    "equipSanitaryBin": {
+      "type": "boolean",
+      "default": false
+    },
+    "equipSoapAndHandSanitizer": {
+      "type": "boolean",
+      "default": false
+    },
+    "cleanWashroomFloor": {
+      "type": "boolean",
+      "default": false
+    },
+    "handleWasteMaterial": {
+      "type": "boolean",
+      "default": false
+    },
+    "foodHandlingAndCookingUtensils": {
+      "type": "boolean",
+      "default": false
+    },
+    "employeeHygiene": {
+      "type": "boolean",
+      "default": false
+    },
+    "pestControl": {
+      "type": "boolean",
+      "default": false
+    },
+    "restaurant": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::restaurant.restaurant",
+      "inversedBy": "cleanlinesses"
+    }
+  }
+}

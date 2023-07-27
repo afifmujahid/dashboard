@@ -1,0 +1,87 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ingredients",
+  "info": {
+    "singularName": "ingredient",
+    "pluralName": "ingredients",
+    "displayName": "RestaurantIngredient",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "maxLength": 150,
+      "required": true
+    },
+    "scientificName": {
+      "type": "string",
+      "maxLength": 150,
+      "required": false
+    },
+    "ingredientSource": {
+      "type": "enumeration",
+      "enum": [
+        "Animal",
+        "Chemical",
+        "Plants",
+        "Natural"
+      ],
+      "required": true
+    },
+    "manufacturerName": {
+      "type": "string",
+      "required": true,
+      "maxLength": 150
+    },
+    "manufacturerAddress": {
+      "type": "text",
+      "required": false,
+      "maxLength": 300
+    },
+    "halalCertificate": {
+      "type": "enumeration",
+      "enum": [
+        "Yes",
+        "No"
+      ],
+      "required": true
+    },
+    "certificateExpiryDate": {
+      "type": "date",
+      "required": false
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "New Ingredient",
+        "Existing Ingredient",
+        "New Supplier"
+      ],
+      "required": true
+    },
+    "restaurant": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::restaurant.restaurant",
+      "inversedBy": "ingredients"
+    },
+    "manufacturerCountry": {
+      "type": "string",
+      "required": true,
+      "maxLength": 150
+    },
+    "approveStatus": {
+      "type": "enumeration",
+      "enum": [
+        "Approved",
+        "Rejected",
+        "Pending"
+      ],
+      "default": "Pending"
+    }
+  }
+}
