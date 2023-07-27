@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:14.4
+    ports:
+      - ${DATABASE_PORT}:5432
+    env_file: .env
+    volumes:
+      - muslim-choice-api-db:/var/lib/postgresql/data
+volumes:
+  muslim-choice-api-db:
+    driver: local
