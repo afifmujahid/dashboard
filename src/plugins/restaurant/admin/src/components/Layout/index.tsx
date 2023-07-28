@@ -7,9 +7,10 @@ const { Title } = Typography;
 interface LayoutProps {
   children: ReactNode;
   title?: string;
+  sideNav?: ReactNode;
 }
 
-const Layout = ({ children, title }: LayoutProps) => (
+const Layout = ({ sideNav, children, title }: LayoutProps) => (
   <AntdLayout className="overflow-auto">
     <Content className="min-h-min p-4 md:p-8">
       <div className="flex flex-col gap-8">
