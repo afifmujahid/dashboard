@@ -42,4 +42,8 @@ export default ({ env }) => ({
       },
     },
   },
+  restaurant: {
+    enabled: true,
+    resolve: "./src/plugins/restaurant",
+  },
 });
