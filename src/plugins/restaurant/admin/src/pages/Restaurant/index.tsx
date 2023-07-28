@@ -46,25 +46,40 @@ const RestaurantPage = () => {
   const links = [
     {
       id: 1,
-      label: "Addresses",
+      label: "Restaurant Details",
       icon: <ExclamationMarkCircle />,
       to: "/address",
     },
     {
       id: 2,
-      label: "Categories",
+      label: "Number Of Employees",
       to: "/category",
     },
     {
       id: 3,
-      label: "Cities",
+      label: "Key Personnel Responsible",
       icon: <Apps />,
       to: "/city",
       active: true,
     },
     {
       id: 4,
-      label: "Countries",
+      label: "Operating Hour",
+      to: "/country",
+    },
+    {
+      id: 5,
+      label: "Image Attachment",
+      to: "/country",
+    },
+    {
+      id: 6,
+      label: "Document Submission",
+      to: "/country",
+    },
+    {
+      id: 7,
+      label: "Cleanliness",
       to: "/country",
     },
   ];
