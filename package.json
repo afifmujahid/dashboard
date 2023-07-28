@@ -2,7 +2,7 @@
   "name": "muslim-choice-admin",
   "private": true,
   "version": "0.1.0",
-  "description": "Music Choice",
+  "description": "Muslim Choice",
   "scripts": {
     "dev": "strapi develop",
     "start": "strapi start",

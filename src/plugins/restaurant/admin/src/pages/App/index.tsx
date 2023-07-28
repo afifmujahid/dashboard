@@ -9,13 +9,13 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { AnErrorOccurred } from "@strapi/helper-plugin";
 import pluginId from "../../pluginId";
-import RestaurantPAge from "../HomePage";
+import RestaurantPage from "../Restaurant";
 
 const App = () => {
   return (
     <div>
       <Switch>
-        <Route path={`/plugins/${pluginId}`} component={RestaurantPAge} exact />
+        <Route path={`/plugins/${pluginId}`} component={RestaurantPage} exact />
         <Route component={AnErrorOccurred} />
       </Switch>
     </div>

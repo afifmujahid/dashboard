@@ -6,17 +6,17 @@
 import { Typography } from "antd";
 import React from "react";
 import Layout from "../../components/Layout";
-// import RestaurantSetup from "../../modules/restaurant/RestaurantSetup";
+import RestaurantSetup from "../../modules/RestaurantSetup";
 
 const { Title, Text } = Typography;
 
-const RestaurantPAge = () => {
+const RestaurantPage = () => {
   return (
     <Layout title="Restaurant">
-      <Text>Testing</Text>
-      {/* <RestaurantSetup /> */}
+      {/* <Text>Testing</Text> */}
+      <RestaurantSetup />
     </Layout>
   );
 };
 
-export default RestaurantPAge;
+export default RestaurantPage;
