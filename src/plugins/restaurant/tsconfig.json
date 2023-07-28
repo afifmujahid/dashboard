@@ -3,10 +3,19 @@
 
   "compilerOptions": {
     "target": "ESNext",
-    "strict": true
+    "strict": true,
+    "jsx": "react"
   },
 
-  "include": ["admin", "custom.d.ts"],
+  "include": [
+    "admin",
+    "custom.d.ts",
+    "./",
+    "./**/*.ts",
+    "./**/*.js",
+    "**/*.tsx",
+    "src/**/*.json"
+  ],
 
   "exclude": [
     "node_modules/",

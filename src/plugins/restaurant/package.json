@@ -1,10 +1,10 @@
 {
-  "name": "customization",
+  "name": "restaurant",
   "version": "0.0.0",
   "description": "This is the description of the plugin.",
   "strapi": {
-    "name": "customization",
-    "description": "Description of customization plugin",
+    "name": "Restaurant",
+    "description": "Description of restaurant plugin",
     "kind": "plugin"
   },
   "dependencies": {

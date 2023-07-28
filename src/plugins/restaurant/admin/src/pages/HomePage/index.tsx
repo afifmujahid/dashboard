@@ -1,21 +1,22 @@
 /*
  *
- * HomePage
+ * RestaurantPAge
  *
  */
 import { Typography } from "antd";
 import React from "react";
-import pluginId from "../../pluginId";
+import Layout from "../../components/Layout";
+// import RestaurantSetup from "../../modules/restaurant/RestaurantSetup";
 
 const { Title, Text } = Typography;
 
-const HomePage = () => {
+const RestaurantPAge = () => {
   return (
-    <div>
-      <h1>{pluginId}&apos;s HomePage</h1>
-      <Text>Test</Text>
-    </div>
+    <Layout title="Restaurant">
+      <Text>Testing</Text>
+      {/* <RestaurantSetup /> */}
+    </Layout>
   );
 };
 
-export default HomePage;
+export default RestaurantPAge;
