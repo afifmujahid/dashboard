@@ -42,4 +42,8 @@ export default ({ env }) => ({
       },
     },
   },
+  customization: {
+    enabled: true,
+    resolve: "./src/plugins/customization",
+  },
 });
