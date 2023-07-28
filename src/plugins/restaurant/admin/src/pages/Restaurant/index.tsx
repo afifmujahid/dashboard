@@ -102,13 +102,13 @@ const RestaurantPage = () => {
     <Box background="neutral100">
       <Layout
         sideNav={
-          <SubNav ariaLabel="Builder sub nav">
+          <SubNav ariaLabel="Restaurant">
             <SubNavHeader
               searchable
               value=""
               onClear={() => {}}
               onChange={() => {}}
-              label="Builder"
+              label="Restaurant"
               searchLabel="Search..."
             />
             <SubNavSections>
@@ -128,13 +128,13 @@ const RestaurantPage = () => {
                 collapsable
                 badgeLabel={links.length.toString()}
               >
-                <SubNavLinkSection label="Default">
+                {/* <SubNavLinkSection label="Default">
                   {links.map((link) => (
                     <SubNavLink to={link.to} key={link.id}>
                       {link.label}
                     </SubNavLink>
                   ))}
-                </SubNavLinkSection>
+                </SubNavLinkSection> */}
               </SubNavSection>
             </SubNavSections>
           </SubNav>
@@ -148,11 +148,11 @@ const RestaurantPage = () => {
                 Edit
               </Button>
             }
-            title="Other CT"
+            title="Restaurant"
             subtitle="36 entries found"
             as="h2"
           />
-          <ActionLayout
+          {/* <ActionLayout
             startActions={
               <>
                 {Array(20)
@@ -176,7 +176,7 @@ const RestaurantPage = () => {
                 </Button>
               </>
             }
-          />
+          /> */}
           <ContentLayout>
             <Table
               colCount={COL_COUNT}
