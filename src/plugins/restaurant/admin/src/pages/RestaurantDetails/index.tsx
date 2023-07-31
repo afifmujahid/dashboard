@@ -1,6 +1,6 @@
 /*
  *
- * RestaurantPAge
+ * RestaurantDetails
  *
  */
 import React, { useState } from "react";
@@ -15,6 +15,7 @@ import {
   HeaderLayout,
   ContentLayout,
   Button,
+  Grid,
   Typography,
   GridLayout,
   TextInput,
@@ -22,14 +23,13 @@ import {
   SingleSelectOption,
 } from "@strapi/design-system";
 import { Plus, Pencil } from "@strapi/icons";
-import { restaurantDetails } from "../../modules/urls";
 
-const RestaurantPage = () => {
+const RestaurantDetails = () => {
   const links = [
     {
       id: 1,
       label: "Restaurant Details",
-      to: restaurantDetails,
+      to: "/address",
     },
     {
       id: 2,
@@ -70,13 +70,13 @@ const RestaurantPage = () => {
     <Box background="neutral100">
       <Layout
         sideNav={
-          <SubNav ariaLabel="Restaurant">
+          <SubNav ariaLabel="RestaurantDetails">
             <SubNavHeader
               searchable
               value=""
               onClear={() => {}}
               onChange={() => {}}
-              label="Restaurant"
+              label="RestaurantDetails"
               searchLabel="Search..."
             />
             <SubNavSections>
@@ -112,7 +112,7 @@ const RestaurantPage = () => {
             as="h2"
           />
           <ContentLayout>
-            <Box padding={8} background="neutral0">
+            <Box background="neutral0">
               <GridLayout>
                 <Box>
                   <div style={{ display: "flex", gap: "16px" }}>
@@ -257,4 +257,4 @@ const RestaurantPage = () => {
   );
 };
 
-export default RestaurantPage;
+export default RestaurantDetails;
