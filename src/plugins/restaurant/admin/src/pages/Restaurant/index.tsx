@@ -1,37 +1,26 @@
-/*
- *
- * RestaurantPAge
- *
- */
-import React from "react";
+import React, { useState, useEffect } from "react";
+// import Strapi from "strapi-sdk-javascript";
+import { useHistory } from "react-router-dom";
 import Layout from "../../components/Layout";
-import RestaurantSetup from "../../modules/RestaurantSetup";
+import NextLink from "next/link";
 import {
-  SubNav,
-  SubNavHeader,
-  SubNavSection,
-  SubNavSections,
-  SubNavLink,
-  SubNavLinkSection,
+  Card,
+  CardHeader,
+  CardBody,
+  CardCheckbox,
+  CardAction,
+  CardAsset,
+  CardTimer,
+  CardContent,
+  CardBadge,
+  CardTitle,
+  CardSubtitle,
   Box,
   HeaderLayout,
-  ActionLayout,
   ContentLayout,
   Button,
-  Tag,
-  Table,
-  TFooter,
-  Thead,
-  IconButton,
-  Tr,
-  Td,
-  Flex,
-  Tbody,
-  Th,
-  VisuallyHidden,
   Typography,
-  BaseCheckbox,
-  Avatar,
+  EmptyStateLayout,
 } from "@strapi/design-system";
 import {
   ExclamationMarkCircle,
@@ -40,49 +29,16 @@ import {
   Pencil,
   Trash,
 } from "@strapi/icons";
-const { Title, Text } = Typography;
+import { Illo } from "../../components/lllo";
+import RestaurantSetup from "../RestaurantSetup";
 
+// import TodoModal from "../../components/TodoModal";
+// import TodoCount from "../../components/TodoCount";
+// import TodoTable from "../../components/TodoTable";
+const { Title, Text } = Typography;
+// const strapi = new Strapi("http://localhost:1337");
 const RestaurantPage = () => {
-  const links = [
-    {
-      id: 1,
-      label: "Restaurant Details",
-      icon: <ExclamationMarkCircle />,
-      to: "/address",
-    },
-    {
-      id: 2,
-      label: "Number Of Employees",
-      to: "/category",
-    },
-    {
-      id: 3,
-      label: "Key Personnel Responsible",
-      icon: <Apps />,
-      to: "/city",
-      active: true,
-    },
-    {
-      id: 4,
-      label: "Operating Hour",
-      to: "/country",
-    },
-    {
-      id: 5,
-      label: "Image Attachment",
-      to: "/country",
-    },
-    {
-      id: 6,
-      label: "Document Submission",
-      to: "/country",
-    },
-    {
-      id: 7,
-      label: "Cleanliness",
-      to: "/country",
-    },
-  ];
+  const history = useHistory();
   const ROW_COUNT = 6;
   const COL_COUNT = 10;
   const entry = {
@@ -98,51 +54,28 @@ const RestaurantPage = () => {
       id: i,
     });
   }
+  // const [restaurants, setRestaurants] = useState([]);
+
+  // useEffect(() => {
+  //   const fetchRestaurants = async () => {
+  //     try {
+  //       const response = await strapi.getEntries("restaurants");
+  //       setRestaurants(response);
+  //     } catch (error) {
+  //       console.error("Error:", error);
+  //     }
+  //   };
+
+  //   fetchRestaurants();
+  // }, []);
   return (
     <Box background="neutral100">
-      <Layout
-        sideNav={
-          <SubNav ariaLabel="Restaurant">
-            <SubNavHeader
-              searchable
-              value=""
-              onClear={() => {}}
-              onChange={() => {}}
-              label="Restaurant"
-              searchLabel="Search..."
-            />
-            <SubNavSections>
-              <SubNavSection
-                label="Collection Type"
-                collapsable
-                badgeLabel={links.length.toString()}
-              >
-                {links.map((link) => (
-                  <SubNavLink to={link.to} active={link.active} key={link.id}>
-                    {link.label}
-                  </SubNavLink>
-                ))}
-              </SubNavSection>
-              <SubNavSection
-                label="Single Type"
-                collapsable
-                badgeLabel={links.length.toString()}
-              >
-                {/* <SubNavLinkSection label="Default">
-                  {links.map((link) => (
-                    <SubNavLink to={link.to} key={link.id}>
-                      {link.label}
-                    </SubNavLink>
-                  ))}
-                </SubNavLinkSection> */}
-              </SubNavSection>
-            </SubNavSections>
-          </SubNav>
-        }
-      >
+      <Layout>
         <>
           <HeaderLayout
-            primaryAction={<Button startIcon={<Plus />}>Add an entry</Button>}
+            primaryAction={
+              <Button startIcon={<Plus />}>Create an entry</Button>
+            }
             secondaryAction={
               <Button variant="tertiary" startIcon={<Pencil />}>
                 Edit
@@ -152,131 +85,68 @@ const RestaurantPage = () => {
             subtitle="36 entries found"
             as="h2"
           />
-          {/* <ActionLayout
-            startActions={
-              <>
-                {Array(20)
-                  .fill(null)
-                  .map((_, index) => (
-                    <Box paddingTop={2} key={index}>
-                      <Tag key={index} icon={<Plus aria-hidden />}>
-                        Hello world {index}
-                      </Tag>
-                    </Box>
-                  ))}
-              </>
-            }
-            endActions={
-              <>
-                <Button size="M" variant="tertiary">
-                  Settings
-                </Button>
-                <Button size="M" variant="tertiary">
-                  Settings
-                </Button>
-              </>
-            }
-          /> */}
           <ContentLayout>
-            <Table
-              colCount={COL_COUNT}
-              rowCount={ROW_COUNT}
-              footer={
-                <TFooter icon={<Plus />}>
-                  Add another field to this collection type
-                </TFooter>
-              }
+            <div
+              style={{
+                display: "flex",
+                gap: "16px",
+              }}
             >
-              <Thead>
-                <Tr>
-                  <Th>
-                    <BaseCheckbox aria-label="Select all entries" />
-                  </Th>
-                  <Th>
-                    <Typography variant="sigma">ID</Typography>
-                  </Th>
-                  <Th>
-                    <Typography variant="sigma">Cover</Typography>
-                  </Th>
-                  <Th>
-                    <Typography variant="sigma">Description</Typography>
-                  </Th>
-                  <Th>
-                    <Typography variant="sigma">Categories</Typography>
-                  </Th>
-                  <Th>
-                    <Typography variant="sigma">Contact</Typography>
-                  </Th>
-                  <Th>More</Th>
-                  <Th>More</Th>
-                  <Th>More</Th>
-                  <Th>
-                    <VisuallyHidden>Actions</VisuallyHidden>
-                  </Th>
-                </Tr>
-              </Thead>
-              <Tbody>
-                {entries.map((entry) => (
-                  <Tr key={entry.id}>
-                    <Td>
-                      <BaseCheckbox aria-label={`Select ${entry.contact}`} />
-                    </Td>
-                    <Td>
-                      <Typography textColor="neutral800">{entry.id}</Typography>
-                    </Td>
-                    <Td>
-                      <Avatar src={entry.cover} alt={entry.contact} />
-                    </Td>
-                    <Td>
-                      <Typography textColor="neutral800">
-                        {entry.description}
-                      </Typography>
-                    </Td>
-                    <Td>
-                      <Typography textColor="neutral800">
-                        {entry.category}
-                      </Typography>
-                    </Td>
-                    <Td>
-                      <Typography textColor="neutral800">
-                        {entry.contact}
-                      </Typography>
-                    </Td>
-                    <Td>
-                      <Typography textColor="neutral800">
-                        {entry.description}
-                      </Typography>
-                    </Td>
-                    <Td>
-                      <Typography textColor="neutral800">
-                        {entry.description}
-                      </Typography>
-                    </Td>
-                    <Td>
-                      <Typography textColor="neutral800">
-                        {entry.description}
-                      </Typography>
-                    </Td>
-                    <Td>
-                      <Flex>
-                        <IconButton
-                          onClick={() => console.log("edit")}
-                          label="Edit"
-                          icon={<Pencil />}
-                        />
-                        <Box paddingLeft={1}>
-                          <IconButton
-                            onClick={() => console.log("edit")}
-                            label="Delete"
-                            icon={<Trash />}
-                          />
-                        </Box>
-                      </Flex>
-                    </Td>
-                  </Tr>
-                ))}
-              </Tbody>
-            </Table>
+              <Card
+                style={{
+                  width: "400px",
+                  height: "200px",
+                }}
+                id="fourth"
+              >
+                <CardBody>
+                  <Box padding={2} background="primary100">
+                    <Pencil />
+                  </Box>
+                  <CardContent paddingLeft={2}>
+                    <CardTitle>File name</CardTitle>
+                    <CardSubtitle>PNG - 400✕400</CardSubtitle>
+                  </CardContent>
+                  <CardBadge>Doc</CardBadge>
+                </CardBody>
+              </Card>
+              <Card
+                style={{
+                  width: "400px",
+                  height: "200px",
+                }}
+                id="fourth"
+              >
+                <CardBody>
+                  <Box padding={2} background="primary100">
+                    <Pencil />
+                  </Box>
+                  <CardContent paddingLeft={2}>
+                    <CardTitle>File name</CardTitle>
+                    <CardSubtitle>PNG - 400✕400</CardSubtitle>
+                  </CardContent>
+                  <CardBadge>Doc</CardBadge>
+                </CardBody>
+              </Card>
+              <Card
+                style={{
+                  width: "400px",
+                  height: "200px",
+                }}
+                id="fourth"
+              >
+                <CardBody>
+                  <Box padding={2} background="primary100">
+                    <Pencil />
+                  </Box>
+                  <CardContent paddingLeft={2}>
+                    <CardTitle>File name</CardTitle>
+                    <CardSubtitle>PNG - 400✕400</CardSubtitle>
+                  </CardContent>
+                  <CardBadge>Doc</CardBadge>
+                </CardBody>
+              </Card>
+            </div>
           </ContentLayout>
         </>
       </Layout>
