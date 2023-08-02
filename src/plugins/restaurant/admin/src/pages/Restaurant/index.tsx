@@ -1,8 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import Strapi from "strapi-sdk-javascript";
-import { useHistory } from "react-router-dom";
-import Layout from "../../components/Layout";
-import NextLink from "next/link";
 import {
   Card,
   CardHeader,
@@ -20,54 +16,22 @@ import {
   ContentLayout,
   Button,
   Typography,
-  EmptyStateLayout,
+  Layout,
+  ModalLayout,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
 } from "@strapi/design-system";
-import {
-  ExclamationMarkCircle,
-  Apps,
-  Plus,
-  Pencil,
-  Trash,
-} from "@strapi/icons";
-import { Illo } from "../../components/lllo";
-import RestaurantSetup from "../RestaurantSetup";
-
-// import TodoModal from "../../components/TodoModal";
-// import TodoCount from "../../components/TodoCount";
-// import TodoTable from "../../components/TodoTable";
-const { Title, Text } = Typography;
-// const strapi = new Strapi("http://localhost:1337");
+import { Plus, Pencil, Trash } from "@strapi/icons";
 const RestaurantPage = () => {
-  const history = useHistory();
-  const ROW_COUNT = 6;
-  const COL_COUNT = 10;
-  const entry = {
-    cover: "https://avatars.githubusercontent.com/u/3874873?v=4",
-    description: "Chez Léon is a human sized Parisian",
-    category: "French cuisine",
-    contact: "Leon Lafrite",
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleCardClick = () => {
+    setIsModalOpen(true);
   };
-  const entries = [];
-  for (let i = 0; i < 5; i++) {
-    entries.push({
-      ...entry,
-      id: i,
-    });
-  }
-  // const [restaurants, setRestaurants] = useState([]);
 
-  // useEffect(() => {
-  //   const fetchRestaurants = async () => {
-  //     try {
-  //       const response = await strapi.getEntries("restaurants");
-  //       setRestaurants(response);
-  //     } catch (error) {
-  //       console.error("Error:", error);
-  //     }
-  //   };
-
-  //   fetchRestaurants();
-  // }, []);
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
   return (
     <Box background="neutral100">
       <Layout>
@@ -76,13 +40,12 @@ const RestaurantPage = () => {
             primaryAction={
               <Button startIcon={<Plus />}>Create an entry</Button>
             }
-            secondaryAction={
-              <Button variant="tertiary" startIcon={<Pencil />}>
-                Edit
-              </Button>
-            }
+            // secondaryAction={
+            //   <Button variant="tertiary" startIcon={<Pencil />}>
+            //     Edit
+            //   </Button>
+            // }
             title="Restaurant"
-            subtitle="36 entries found"
             as="h2"
           />
           <ContentLayout>
@@ -94,60 +57,63 @@ const RestaurantPage = () => {
             >
               <Card
                 style={{
-                  width: "400px",
+                  width: "300px",
                   height: "200px",
+                  borderRadius: "20px",
                 }}
-                id="fourth"
+                id="first"
+                onClick={handleCardClick}
               >
-                <CardBody>
-                  <Box padding={2} background="primary100">
-                    <Pencil />
-                  </Box>
-                  <CardContent paddingLeft={2}>
-                    <CardTitle>File name</CardTitle>
-                    <CardSubtitle>PNG - 400✕400</CardSubtitle>
-                  </CardContent>
-                  <CardBadge>Doc</CardBadge>
-                </CardBody>
-              </Card>
-              <Card
-                style={{
-                  width: "400px",
-                  height: "200px",
-                }}
-                id="fourth"
-              >
-                <CardBody>
-                  <Box padding={2} background="primary100">
-                    <Pencil />
-                  </Box>
-                  <CardContent paddingLeft={2}>
-                    <CardTitle>File name</CardTitle>
-                    <CardSubtitle>PNG - 400✕400</CardSubtitle>
-                  </CardContent>
-                  <CardBadge>Doc</CardBadge>
-                </CardBody>
-              </Card>
-              <Card
-                style={{
-                  width: "400px",
-                  height: "200px",
-                }}
-                id="fourth"
-              >
-                <CardBody>
-                  <Box padding={2} background="primary100">
-                    <Pencil />
-                  </Box>
-                  <CardContent paddingLeft={2}>
-                    <CardTitle>File name</CardTitle>
-                    <CardSubtitle>PNG - 400✕400</CardSubtitle>
-                  </CardContent>
-                  <CardBadge>Doc</CardBadge>
-                </CardBody>
+                <CardHeader
+                  style={{
+                    width: "300px",
+                    height: "200px",
+                  }}
+                >
+                  <Typography fontWeight="bold" variant="beta">
+                    Restaurant Name
+                  </Typography>
+                </CardHeader>
               </Card>
             </div>
           </ContentLayout>
+          {isModalOpen && (
+            <ModalLayout onClose={handleCloseModal}>
+              <ModalHeader>
+                <Typography>Restaurant Name</Typography>
+              </ModalHeader>
+              <ModalBody
+                style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}
+              >
+                <Typography>MFW Officer In Charge :</Typography>
+                <Typography>Trade Name :</Typography>
+                <Typography>Business Registration Name :</Typography>
+                <Typography>Company Registration No :</Typography>
+                <Typography>Company Status :</Typography>
+                <Typography>Company Address :</Typography>
+                <Typography>District :</Typography>
+                <Typography>Latitude :</Typography>
+                <Typography>Longitude :</Typography>
+                <Typography>Postcode :</Typography>
+                <Typography>City :</Typography>
+                <Typography>State :</Typography>
+                <Typography>Phone Number :</Typography>
+                <Typography>Email :</Typography>
+                <Typography>Number of Shifts :</Typography>
+                <Typography>Annual Sales Revenue RM :</Typography>
+                <Typography>Business Type :</Typography>
+                <Typography>Type of Industry :</Typography>
+                <Typography>Product Market :</Typography>
+              </ModalBody>
+              <ModalFooter
+                endActions={
+                  <>
+                    <Button onClick={handleCloseModal}>Close</Button>
+                  </>
+                }
+              />
+            </ModalLayout>
+          )}
         </>
       </Layout>
     </Box>
