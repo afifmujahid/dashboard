@@ -42,4 +42,8 @@ export default ({ env }) => ({
       },
     },
   },
+  todo: {
+    enabled: true,
+    resolve: "./src/plugins/todo",
+  },
 });
