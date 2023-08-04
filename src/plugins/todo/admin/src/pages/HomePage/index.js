@@ -154,6 +154,9 @@ const RestaurantPage = () => {
                 <Typography>
                   Product Market : {selectedRestaurant.productMarket}
                 </Typography>
+                <Typography>
+                  Audit Status: {selectedRestaurant.auditStatus}
+                </Typography>
               </ModalBody>
               <ModalFooter
                 endActions={
