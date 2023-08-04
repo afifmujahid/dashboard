@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "restaurants",
+  "collectionName": "todos",
   "info": {
-    "singularName": "restaurant",
-    "pluralName": "restaurants",
-    "displayName": "Restaurant",
-    "description": ""
+    "singularName": "todo",
+    "pluralName": "todos",
+    "displayName": "Todo"
   },
   "options": {
     "draftAndPublish": true
@@ -142,7 +141,6 @@
     "city": {
       "type": "string",
       "required": true,
-      "default": "city",
       "maxLength": 150
     },
     "state": {

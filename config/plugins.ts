@@ -42,8 +42,8 @@ export default ({ env }) => ({
       },
     },
   },
-  restaurant: {
+  todo: {
     enabled: true,
-    resolve: "./src/plugins/restaurant",
+    resolve: "./src/plugins/todo",
   },
 });
