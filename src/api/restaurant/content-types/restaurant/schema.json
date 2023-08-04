@@ -31,10 +31,7 @@
     "status": {
       "pluginOptions": {},
       "type": "enumeration",
-      "enum": [
-        "Bumiputera",
-        "Non-Bumiputera"
-      ],
+      "enum": ["Bumiputera", "Non-Bumiputera"],
       "required": true
     },
     "registrationName": {
@@ -84,10 +81,7 @@
     },
     "productMarket": {
       "type": "enumeration",
-      "enum": [
-        "Local",
-        "International"
-      ]
+      "enum": ["Local", "International"]
     },
     "employee": {
       "type": "relation",

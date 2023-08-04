@@ -83,13 +83,18 @@ export default function TodoTable({
             </Th>
 
             <Th>
-              <Typography variant="sigma">Todo</Typography>
+              <Typography variant="sigma">Address</Typography>
             </Th>
 
             <Th>
-              <Typography variant="sigma">Status</Typography>
+              <Typography variant="sigma">Phone</Typography>
             </Th>
-
+            <Th>
+              <Typography variant="sigma">Name</Typography>
+            </Th>
+            <Th>
+              <Typography variant="sigma">State</Typography>
+            </Th>
             <Th>
               <VisuallyHidden>Actions</VisuallyHidden>
             </Th>
@@ -101,6 +106,7 @@ export default function TodoTable({
             const [inputValue, setInputValue] = useState(todo.name);
 
             const [isEdit, setIsEdit] = useState(false);
+            const [isDelete, setIsDelete] = useState(false);
 
             return (
               <Tr key={todo.id}>
@@ -115,18 +121,30 @@ export default function TodoTable({
                       onChange={(e) => setInputValue(e.target.value)}
                     />
                   ) : (
-                    <Typography textColor="neutral800">{todo.name}</Typography>
+                    <Typography textColor="neutral800">
+                      {todo.address}
+                    </Typography>
                   )}
                 </Td>
-
                 <Td>
+                  <Typography textColor="neutral800">{todo.phone}</Typography>
+                </Td>
+                <Td>
+                  <Typography textColor="neutral800">{todo.name}</Typography>
+                </Td>
+                {/* <Td>
+                  <Typography textColor="neutral800">
+                    {options.draftAndPublish}
+                  </Typography>
+                </Td> */}
+                {/* <Td>
                   <TodoCheckbox
                     value={todo.isDone}
                     checkboxID={todo.id}
                     callback={toggleTodo}
                     disabled={isEdit}
                   />
-                </Td>
+                </Td> */}
 
                 <Td>
                   {isEdit ? (
@@ -148,7 +166,7 @@ export default function TodoTable({
 
                       <Box paddingLeft={1}>
                         <IconButton
-                          onClick={() => deleteTodo(todo)}
+                          onClick={() => deleteTodo(true)}
                           label="Delete"
                           noBorder
                           icon={<Trash />}

@@ -60,7 +60,6 @@ export default function TodoModal({ setShowModal, addTodo }) {
           value={name}
         />
       </ModalBody>
-
       <ModalFooter
         startActions={
           <Button onClick={() => setShowModal(false)} variant="tertiary">
