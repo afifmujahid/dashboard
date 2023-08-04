@@ -141,7 +141,6 @@
     "city": {
       "type": "string",
       "required": true,
-      "default": "city",
       "maxLength": 150
     },
     "state": {
