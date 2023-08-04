@@ -8,8 +8,7 @@
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
-    "postinstall": "patch-package",
-    "prebuild": "cd src/plugins/restaurant && yarn run build"
+    "postinstall": "patch-package"
   },
   "devDependencies": {
     "patch-package": "^7.0.0"
