@@ -1,120 +1,8 @@
-// /*
-//  *
-//  * HomePage
-//  *
-//  */
-
-// import React, { memo, useState, useEffect } from "react";
-// import { LoadingIndicatorPage } from "@strapi/helper-plugin";
-// import todoRequests from "../../api/todo";
-// import {
-//   Layout,
-//   BaseHeaderLayout,
-//   ContentLayout,
-// } from "@strapi/design-system/Layout";
-
-// import { EmptyStateLayout } from "@strapi/design-system/EmptyStateLayout";
-// import { Button } from "@strapi/design-system/Button";
-// import Plus from "@strapi/icons/Plus";
-// import { Illo } from "../../components/Illo";
-
-// import TodoModal from "../../components/TodoModal";
-// import TodoCount from "../../components/TodoCount";
-// import TodoTable from "../../components/TodoTable";
-
-// const HomePage = () => {
-//   const [todoData, setTodoData] = useState([]);
-//   const [showModal, setShowModal] = useState(false);
-//   const [isLoading, setIsLoading] = useState(true);
-
-//   const fetchData = async () => {
-//     if (isLoading === false) setIsLoading(true);
-//     const todo = await todoRequests.getAllTodos();
-//     setTodoData(todo);
-//     setIsLoading(false);
-//   };
-
-//   useEffect(async () => {
-//     await fetchData();
-//   }, []);
-
-//   async function addTodo(data) {
-//     await todoRequests.addTodo(data);
-//     await fetchData();
-//   }
-
-//   async function toggleTodo(data) {
-//     await todoRequests.toggleTodo(data.id);
-//   }
-
-//   async function deleteTodo(data) {
-//     await todoRequests.deleteTodo(data.id);
-//     await fetchData();
-//   }
-
-//   async function editTodo(id, data) {
-//     await todoRequests.editTodo(id, data);
-//     await fetchData();
-//   }
-
-//   if (isLoading) return <LoadingIndicatorPage />;
-
-//   return (
-//     <Layout>
-//       <BaseHeaderLayout
-//         title="Todo Plugin"
-//         subtitle="All your todos in one place."
-//         as="h2"
-//       />
-
-//       <ContentLayout>
-//         {todoData.length === 0 ? (
-//           <EmptyStateLayout
-//             icon={<Illo />}
-//             content="You don't have any todos yet..."
-//             action={
-//               <Button
-//                 onClick={() => setShowModal(true)}
-//                 variant="secondary"
-//                 startIcon={<Plus />}
-//               >
-//                 Add your first todo
-//               </Button>
-//             }
-//           />
-//         ) : (
-//           <>
-//             <TodoCount count={todoData.length} />
-//             <TodoTable
-//               todoData={todoData}
-//               setShowModal={setShowModal}
-//               toggleTodo={toggleTodo}
-//               deleteTodo={deleteTodo}
-//               editTodo={editTodo}
-//             />
-//           </>
-//         )}
-//       </ContentLayout>
-//       {showModal && <TodoModal setShowModal={setShowModal} addTodo={addTodo} />}
-//     </Layout>
-//   );
-// };
-
-// export default memo(HomePage);
 import React, { useState, useEffect } from "react";
 import todoRequests from "../../api/todo";
 import {
   Card,
   CardHeader,
-  CardBody,
-  CardCheckbox,
-  CardAction,
-  CardAsset,
-  CardTimer,
-  CardContent,
-  CardBadge,
-  CardTitle,
-  CardSubtitle,
   Box,
   HeaderLayout,
   ContentLayout,
@@ -130,14 +18,19 @@ import { Plus, Pencil, Trash } from "@strapi/icons";
 
 const RestaurantPage = () => {
   const [todoData, setTodoData] = useState([]);
+  const [selectedRestaurant, setSelectedRestaurant] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const handleCardClick = () => {
+
+  const handleCardClick = (restaurant) => {
+    setSelectedRestaurant(restaurant);
     setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
+    setSelectedRestaurant(null);
     setIsModalOpen(false);
   };
+
   useEffect(() => {
     async function fetchTodos() {
       try {
@@ -145,7 +38,6 @@ const RestaurantPage = () => {
         console.log("Fetched todos:", todos); // For debugging purposes
         setTodoData(todos);
       } catch (error) {
-        // Handle error while fetching todos
         console.error("Error fetching todos:", error);
       }
     }
@@ -160,11 +52,6 @@ const RestaurantPage = () => {
             primaryAction={
               <Button startIcon={<Plus />}>Create an entry</Button>
             }
-            // secondaryAction={
-            //   <Button variant="tertiary" startIcon={<Pencil />}>
-            //     Edit
-            //   </Button>
-            // }
             title="Restaurant"
             as="h2"
           />
@@ -173,6 +60,7 @@ const RestaurantPage = () => {
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(4, 1fr)",
+                rowGap: "16px",
               }}
             >
               {todoData.map((todo) => (
@@ -189,8 +77,8 @@ const RestaurantPage = () => {
                         height: "200px",
                         borderRadius: "20px",
                       }}
-                      id="first"
-                      onClick={handleCardClick}
+                      id={todo.id}
+                      onClick={() => handleCardClick(todo)}
                     >
                       <CardHeader
                         style={{
@@ -208,51 +96,64 @@ const RestaurantPage = () => {
               ))}
             </div>
           </ContentLayout>
-          {isModalOpen && (
+          {selectedRestaurant && (
             <ModalLayout onClose={handleCloseModal}>
               <ModalHeader>
-                <Typography>Restaurant Name</Typography>
+                <Typography>{selectedRestaurant.name}</Typography>
               </ModalHeader>
               <ModalBody
                 style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}
               >
-                {todoData.map((todo) => (
-                  <React.Fragment key={todo.id}>
-                    <Typography>
-                      MFW Officer In Charge : {todo.officerInCharge}
-                    </Typography>
-                    <Typography>Trade Name : {todo.name}</Typography>
-                    <Typography>
-                      Business Registration Name : {todo.registrationName}
-                    </Typography>
-                    <Typography>
-                      Company Registration No : {todo.registrationNo}
-                    </Typography>
-                    <Typography>Company Status : {todo.status}</Typography>
-                    <Typography>Company Address : {todo.address}</Typography>
-                    <Typography>District : {todo.district}</Typography>
-                    <Typography>Latitude : {todo.latitude}</Typography>
-                    <Typography>Longitude : {todo.longitude}</Typography>
-                    <Typography>Postcode : {todo.postcode}</Typography>
-                    <Typography>City : {todo.city}</Typography>
-                    <Typography>State : {todo.state}</Typography>
-                    <Typography>Phone Number : {todo.phone}</Typography>
-                    <Typography>Email : {todo.email}</Typography>
-                    <Typography>
-                      Number of Shifts : {todo.numberOfShift}
-                    </Typography>
-                    <Typography>
-                      Annual Sales Revenue RM : {todo.revenue}
-                    </Typography>
-                    <Typography>Business Type : {todo.businessType}</Typography>
-                    <Typography>
-                      Type of Industry : {todo.industryType}
-                    </Typography>
-                    <Typography>
-                      Product Market : {todo.productMarket}
-                    </Typography>
-                  </React.Fragment>
-                ))}
+                <Typography>
+                  MFW Officer In Charge : {selectedRestaurant.officerInCharge}
+                </Typography>
+                <Typography>Trade Name : {selectedRestaurant.name}</Typography>
+                <Typography>
+                  Business Registration Name :{" "}
+                  {selectedRestaurant.registrationName}
+                </Typography>
+                <Typography>
+                  Company Registration No : {selectedRestaurant.registrationNo}
+                </Typography>
+                <Typography>
+                  Company Status : {selectedRestaurant.status}
+                </Typography>
+                <Typography>
+                  Company Address : {selectedRestaurant.address}
+                </Typography>
+                <Typography>
+                  District : {selectedRestaurant.district}
+                </Typography>
+                <Typography>
+                  Latitude : {selectedRestaurant.latitude}
+                </Typography>
+                <Typography>
+                  Longitude : {selectedRestaurant.longitude}
+                </Typography>
+                <Typography>
+                  Postcode : {selectedRestaurant.postcode}
+                </Typography>
+                <Typography>City : {selectedRestaurant.city}</Typography>
+                <Typography>State : {selectedRestaurant.state}</Typography>
+                <Typography>
+                  Phone Number : {selectedRestaurant.phone}
+                </Typography>
+                <Typography>Email : {selectedRestaurant.email}</Typography>
+                <Typography>
+                  Number of Shifts : {selectedRestaurant.numberOfShift}
+                </Typography>
+                <Typography>
+                  Annual Sales Revenue RM : {selectedRestaurant.revenue}
+                </Typography>
+                <Typography>
+                  Business Type : {selectedRestaurant.businessType}
+                </Typography>
+                <Typography>
+                  Type of Industry : {selectedRestaurant.industryType}
+                </Typography>
+                <Typography>
+                  Product Market : {selectedRestaurant.productMarket}
+                </Typography>
               </ModalBody>
               <ModalFooter
                 endActions={
