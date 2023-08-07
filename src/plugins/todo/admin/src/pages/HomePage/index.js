@@ -31,6 +31,21 @@ const RestaurantPage = () => {
     setIsModalOpen(false);
   };
 
+  const handleAuditStatusChange = async (event) => {
+    const updatedRestaurant = {
+      ...selectedRestaurant,
+      auditStatus: event.target.value,
+    };
+
+    try {
+      await todoRequests.editTodo(selectedRestaurant.id, updatedRestaurant);
+      setSelectedRestaurant(updatedRestaurant);
+      const todos = await todoRequests.getAllTodos();
+      setTodoData(todos);
+    } catch (error) {
+      console.error("Error updating todo:", error);
+    }
+  };
   useEffect(() => {
     async function fetchTodos() {
       try {
@@ -170,7 +185,21 @@ const RestaurantPage = () => {
                     Product Market : {selectedRestaurant.productMarket}
                   </Typography>
                   <Typography>
-                    Audit Status: {selectedRestaurant.auditStatus}
+                    Audit Status:
+                    <select
+                      value={selectedRestaurant.auditStatus}
+                      onChange={handleAuditStatusChange}
+                    >
+                      <option value="PendingRegistration">
+                        Pending Registration
+                      </option>
+                      <option value="RegistrationCompleted">
+                        Registration Completed
+                      </option>
+                      <option value="ReviewDocument">Review Document</option>
+                      <option value="AuditInspection">Audit Inspection</option>
+                      <option value="Certified">Certified</option>
+                    </select>
                   </Typography>
                 </ModalBody>
                 <ModalFooter
