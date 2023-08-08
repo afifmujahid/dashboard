@@ -14,7 +14,7 @@ import {
   ModalBody,
   ModalFooter,
 } from "@strapi/design-system";
-import { Plus } from "@strapi/icons";
+import RestaurantDetail from "../../components/RestaurantDetail";
 
 const RestaurantPage = () => {
   const [todoData, setTodoData] = useState([]);
@@ -62,13 +62,7 @@ const RestaurantPage = () => {
     <Box background="neutral100">
       <Layout>
         <>
-          <HeaderLayout
-            // primaryAction={
-            //   <Button startIcon={<Plus />}>Create an entry</Button>
-            // }
-            title="Restaurant"
-            as="h2"
-          />
+          <HeaderLayout title="Restaurant" as="h2" />
           <Box
             background="neutral0"
             hasRadius={true}
@@ -76,148 +70,29 @@ const RestaurantPage = () => {
             padding={8}
             style={{ marginTop: "10px" }}
           >
-            <ContentLayout>
-              <div
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(2, 1fr)",
+                rowGap: "16px",
+                gap: "16px",
+              }}
+            >
+              <Card
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(4, 1fr)",
-                  rowGap: "16px",
+                  width: "100px",
+                  height: "100px",
+                  borderRadius: "20px",
+                  backgroundColor: "#004e5a",
+                  color: "white",
                 }}
-              >
-                {todoData.map((todo) => (
-                  <React.Fragment key={todo.id}>
-                    <div
-                      style={{
-                        display: "flex",
-                        gap: "16px",
-                      }}
-                    >
-                      <Card
-                        style={{
-                          width: "300px",
-                          height: "200px",
-                          borderRadius: "20px",
-                          backgroundColor: "#004e5a",
-                          color: "white",
-                        }}
-                        id={todo.id}
-                        onClick={() => handleCardClick(todo)}
-                      >
-                        <CardHeader
-                          style={{
-                            width: "300px",
-                            height: "200px",
-                          }}
-                        >
-                          <Typography
-                            fontWeight="bold"
-                            variant="beta"
-                            style={{ color: "white" }}
-                          >
-                            {todo.name}
-                          </Typography>
-                        </CardHeader>
-                      </Card>
-                    </div>
-                  </React.Fragment>
-                ))}
-              </div>
-            </ContentLayout>
-            {selectedRestaurant && (
-              <ModalLayout onClose={handleCloseModal}>
-                <ModalHeader>
-                  <Typography>{selectedRestaurant.name}</Typography>
-                </ModalHeader>
-                <ModalBody
-                  style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}
-                >
-                  <Typography>
-                    MFW Officer In Charge : {selectedRestaurant.officerInCharge}
-                  </Typography>
-                  <Typography>
-                    Trade Name : {selectedRestaurant.name}
-                  </Typography>
-                  <Typography>
-                    Business Registration Name :{" "}
-                    {selectedRestaurant.registrationName}
-                  </Typography>
-                  <Typography>
-                    Company Registration No :{" "}
-                    {selectedRestaurant.registrationNo}
-                  </Typography>
-                  <Typography>
-                    Company Status : {selectedRestaurant.status}
-                  </Typography>
-                  <Typography>
-                    Company Address : {selectedRestaurant.address}
-                  </Typography>
-                  <Typography>
-                    District : {selectedRestaurant.district}
-                  </Typography>
-                  <Typography>
-                    Latitude : {selectedRestaurant.latitude}
-                  </Typography>
-                  <Typography>
-                    Longitude : {selectedRestaurant.longitude}
-                  </Typography>
-                  <Typography>
-                    Postcode : {selectedRestaurant.postcode}
-                  </Typography>
-                  <Typography>City : {selectedRestaurant.city}</Typography>
-                  <Typography>State : {selectedRestaurant.state}</Typography>
-                  <Typography>
-                    Phone Number : {selectedRestaurant.phone}
-                  </Typography>
-                  <Typography>Email : {selectedRestaurant.email}</Typography>
-                  <Typography>
-                    Number of Shifts : {selectedRestaurant.numberOfShift}
-                  </Typography>
-                  <Typography>
-                    Annual Sales Revenue RM : {selectedRestaurant.revenue}
-                  </Typography>
-                  <Typography>
-                    Business Type : {selectedRestaurant.businessType}
-                  </Typography>
-                  <Typography>
-                    Type of Industry : {selectedRestaurant.industryType}
-                  </Typography>
-                  <Typography>
-                    Product Market : {selectedRestaurant.productMarket}
-                  </Typography>
-                  <Typography>
-                    Audit Status:
-                    <select
-                      value={selectedRestaurant.auditStatus}
-                      onChange={handleAuditStatusChange}
-                    >
-                      <option value="PendingRegistration">
-                        Pending Registration
-                      </option>
-                      <option value="RegistrationCompleted">
-                        Registration Completed
-                      </option>
-                      <option value="ReviewDocument">Review Document</option>
-                      <option value="AuditInspection">Audit Inspection</option>
-                      <option value="Certified">Certified</option>
-                    </select>
-                  </Typography>
-                </ModalBody>
-                <ModalFooter
-                  endActions={
-                    <>
-                      <Button
-                        style={{
-                          backgroundColor: "#004e5a",
-                        }}
-                        onClick={handleCloseModal}
-                      >
-                        Close
-                      </Button>
-                    </>
-                  }
-                />
-              </ModalLayout>
-            )}
+                // id={todo.id}
+                // onClick={() => handleCardClick(todo)}
+              ></Card>
+              <ContentLayout>
+                <RestaurantDetail />
+              </ContentLayout>
+            </div>
           </Box>
         </>
       </Layout>
