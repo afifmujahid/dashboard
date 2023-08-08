@@ -14,7 +14,7 @@ import {
   ModalBody,
   ModalFooter,
 } from "@strapi/design-system";
-import RestaurantDetail from "../../components/RestaurantDetail";
+import { Plus } from "@strapi/icons";
 
 const RestaurantPage = () => {
   const [todoData, setTodoData] = useState([]);
@@ -31,21 +31,6 @@ const RestaurantPage = () => {
     setIsModalOpen(false);
   };
 
-  const handleAuditStatusChange = async (event) => {
-    const updatedRestaurant = {
-      ...selectedRestaurant,
-      auditStatus: event.target.value,
-    };
-
-    try {
-      await todoRequests.editTodo(selectedRestaurant.id, updatedRestaurant);
-      setSelectedRestaurant(updatedRestaurant);
-      const todos = await todoRequests.getAllTodos();
-      setTodoData(todos);
-    } catch (error) {
-      console.error("Error updating todo:", error);
-    }
-  };
   useEffect(() => {
     async function fetchTodos() {
       try {
@@ -62,7 +47,13 @@ const RestaurantPage = () => {
     <Box background="neutral100">
       <Layout>
         <>
-          <HeaderLayout title="Restaurant" as="h2" />
+          <HeaderLayout
+            // primaryAction={
+            //   <Button startIcon={<Plus />}>Create an entry</Button>
+            // }
+            title="Restaurant"
+            as="h2"
+          />
           <Box
             background="neutral0"
             hasRadius={true}
@@ -70,29 +61,134 @@ const RestaurantPage = () => {
             padding={8}
             style={{ marginTop: "10px" }}
           >
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(2, 1fr)",
-                rowGap: "16px",
-                gap: "16px",
-              }}
-            >
-              <Card
+            <ContentLayout>
+              <div
                 style={{
-                  width: "100px",
-                  height: "100px",
-                  borderRadius: "20px",
-                  backgroundColor: "#004e5a",
-                  color: "white",
+                  display: "grid",
+                  gridTemplateColumns: "repeat(4, 1fr)",
+                  rowGap: "16px",
                 }}
-                // id={todo.id}
-                // onClick={() => handleCardClick(todo)}
-              ></Card>
-              <ContentLayout>
-                <RestaurantDetail />
-              </ContentLayout>
-            </div>
+              >
+                {todoData.map((todo) => (
+                  <React.Fragment key={todo.id}>
+                    <div
+                      style={{
+                        display: "flex",
+                        gap: "16px",
+                      }}
+                    >
+                      <Card
+                        style={{
+                          width: "300px",
+                          height: "200px",
+                          borderRadius: "20px",
+                          backgroundColor: "#004e5a",
+                          color: "white",
+                        }}
+                        id={todo.id}
+                        onClick={() => handleCardClick(todo)}
+                      >
+                        <CardHeader
+                          style={{
+                            width: "300px",
+                            height: "200px",
+                          }}
+                        >
+                          <Typography
+                            fontWeight="bold"
+                            variant="beta"
+                            style={{ color: "white" }}
+                          >
+                            {todo.name}
+                          </Typography>
+                        </CardHeader>
+                      </Card>
+                    </div>
+                  </React.Fragment>
+                ))}
+              </div>
+            </ContentLayout>
+            {selectedRestaurant && (
+              <ModalLayout onClose={handleCloseModal}>
+                <ModalHeader>
+                  <Typography>{selectedRestaurant.name}</Typography>
+                </ModalHeader>
+                <ModalBody
+                  style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}
+                >
+                  <Typography>
+                    MFW Officer In Charge : {selectedRestaurant.officerInCharge}
+                  </Typography>
+                  <Typography>
+                    Trade Name : {selectedRestaurant.name}
+                  </Typography>
+                  <Typography>
+                    Business Registration Name :{" "}
+                    {selectedRestaurant.registrationName}
+                  </Typography>
+                  <Typography>
+                    Company Registration No :{" "}
+                    {selectedRestaurant.registrationNo}
+                  </Typography>
+                  <Typography>
+                    Company Status : {selectedRestaurant.status}
+                  </Typography>
+                  <Typography>
+                    Company Address : {selectedRestaurant.address}
+                  </Typography>
+                  <Typography>
+                    District : {selectedRestaurant.district}
+                  </Typography>
+                  <Typography>
+                    Latitude : {selectedRestaurant.latitude}
+                  </Typography>
+                  <Typography>
+                    Longitude : {selectedRestaurant.longitude}
+                  </Typography>
+                  <Typography>
+                    Postcode : {selectedRestaurant.postcode}
+                  </Typography>
+                  <Typography>City : {selectedRestaurant.city}</Typography>
+                  <Typography>State : {selectedRestaurant.state}</Typography>
+                  <Typography>
+                    Phone Number : {selectedRestaurant.phone}
+                  </Typography>
+                  <Typography>Email : {selectedRestaurant.email}</Typography>
+                  <Typography>
+                    Number of Shifts : {selectedRestaurant.numberOfShift}
+                  </Typography>
+                  <Typography>
+                    Annual Sales Revenue RM : {selectedRestaurant.revenue}
+                  </Typography>
+                  <Typography>
+                    Business Type : {selectedRestaurant.businessType}
+                  </Typography>
+                  <Typography>
+                    Type of Industry : {selectedRestaurant.industryType}
+                  </Typography>
+                  <Typography>
+                    Product Market : {selectedRestaurant.productMarket}
+                  </Typography>
+                  <Typography>
+                    Audit Status: {selectedRestaurant.auditStatus}
+                  </Typography>
+                </ModalBody>
+                <ModalFooter
+                  endActions={
+                    <>
+                      <Button
+                        style={{
+                          backgroundColor: "#004e5a",
+                        }}
+                        onClick={handleCloseModal}
+                      >
+                        Close
+                      </Button>
+                    </>
+                  }
+                />
+              </ModalLayout>
+            )}
           </Box>
         </>
       </Layout>

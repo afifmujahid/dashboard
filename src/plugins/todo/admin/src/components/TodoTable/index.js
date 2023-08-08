@@ -68,8 +68,8 @@ export default function TodoTable({
       style={{ marginTop: "10px" }}
     >
       <Table
-        // colCount={4}
-        // rowCount={10}
+        colCount={4}
+        rowCount={10}
         footer={
           <TFooter onClick={() => setShowModal(true)} icon={<Plus />}>
             Add a todo
