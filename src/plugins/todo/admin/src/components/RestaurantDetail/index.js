@@ -30,21 +30,21 @@ const RestaurantDetail = () => {
     setIsModalOpen(false);
   };
 
-  const handleAuditStatusChange = async (event) => {
-    const updatedRestaurant = {
-      ...selectedRestaurant,
-      auditStatus: event.target.value,
-    };
+  // const handleAuditStatusChange = async (event) => {
+  //   const updatedRestaurant = {
+  //     ...selectedRestaurant,
+  //     auditStatus: event.target.value,
+  //   };
 
-    try {
-      await todoRequests.editTodo(selectedRestaurant.id, updatedRestaurant);
-      setSelectedRestaurant(updatedRestaurant);
-      const todos = await todoRequests.getAllTodos();
-      setTodoData(todos);
-    } catch (error) {
-      console.error("Error updating todo:", error);
-    }
-  };
+  //   try {
+  //     await todoRequests.editTodo(selectedRestaurant.id, updatedRestaurant);
+  //     setSelectedRestaurant(updatedRestaurant);
+  //     const todos = await todoRequests.getAllTodos();
+  //     setTodoData(todos);
+  //   } catch (error) {
+  //     console.error("Error updating todo:", error);
+  //   }
+  // };
   useEffect(() => {
     async function fetchTodos() {
       try {

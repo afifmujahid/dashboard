@@ -68,8 +68,8 @@ export default function TodoTable({
       style={{ marginTop: "10px" }}
     >
       <Table
-        // colCount={4}
-        // rowCount={10}
+        colCount={4}
+        rowCount={10}
         footer={
           <TFooter onClick={() => setShowModal(true)} icon={<Plus />}>
             Add a todo
@@ -83,18 +83,13 @@ export default function TodoTable({
             </Th>
 
             <Th>
-              <Typography variant="sigma">Address</Typography>
+              <Typography variant="sigma">Todo</Typography>
             </Th>
 
             <Th>
-              <Typography variant="sigma">Phone</Typography>
+              <Typography variant="sigma">Status</Typography>
             </Th>
-            <Th>
-              <Typography variant="sigma">Name</Typography>
-            </Th>
-            <Th>
-              <Typography variant="sigma">State</Typography>
-            </Th>
+
             <Th>
               <VisuallyHidden>Actions</VisuallyHidden>
             </Th>
@@ -106,7 +101,6 @@ export default function TodoTable({
             const [inputValue, setInputValue] = useState(todo.name);
 
             const [isEdit, setIsEdit] = useState(false);
-            const [isDelete, setIsDelete] = useState(false);
 
             return (
               <Tr key={todo.id}>
@@ -121,30 +115,18 @@ export default function TodoTable({
                       onChange={(e) => setInputValue(e.target.value)}
                     />
                   ) : (
-                    <Typography textColor="neutral800">
-                      {todo.address}
-                    </Typography>
+                    <Typography textColor="neutral800">{todo.name}</Typography>
                   )}
                 </Td>
+
                 <Td>
-                  <Typography textColor="neutral800">{todo.phone}</Typography>
-                </Td>
-                <Td>
-                  <Typography textColor="neutral800">{todo.name}</Typography>
-                </Td>
-                {/* <Td>
-                  <Typography textColor="neutral800">
-                    {options.draftAndPublish}
-                  </Typography>
-                </Td> */}
-                {/* <Td>
                   <TodoCheckbox
                     value={todo.isDone}
                     checkboxID={todo.id}
                     callback={toggleTodo}
                     disabled={isEdit}
                   />
-                </Td> */}
+                </Td>
 
                 <Td>
                   {isEdit ? (
@@ -166,7 +148,7 @@ export default function TodoTable({
 
                       <Box paddingLeft={1}>
                         <IconButton
-                          onClick={() => deleteTodo(true)}
+                          onClick={() => deleteTodo(todo)}
                           label="Delete"
                           noBorder
                           icon={<Trash />}

@@ -15,6 +15,8 @@ import {
   ModalFooter,
 } from "@strapi/design-system";
 import RestaurantDetail from "../../components/RestaurantDetail";
+import TodoTable from "../../components/TodoTable";
+import RestaurantList from "../../components/Table";
 
 const RestaurantPage = () => {
   const [todoData, setTodoData] = useState([]);
@@ -63,37 +65,12 @@ const RestaurantPage = () => {
       <Layout>
         <>
           <HeaderLayout title="Restaurant" as="h2" />
-          <Box
-            background="neutral0"
-            hasRadius={true}
-            shadow="filterShadow"
-            padding={8}
-            style={{ marginTop: "10px" }}
-          >
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(2, 1fr)",
-                rowGap: "16px",
-                gap: "16px",
-              }}
-            >
-              <Card
-                style={{
-                  width: "100px",
-                  height: "100px",
-                  borderRadius: "20px",
-                  backgroundColor: "#004e5a",
-                  color: "white",
-                }}
-                // id={todo.id}
-                // onClick={() => handleCardClick(todo)}
-              ></Card>
-              <ContentLayout>
-                <RestaurantDetail />
-              </ContentLayout>
-            </div>
-          </Box>
+
+          <ContentLayout>
+            {/* <RestaurantDetail /> */}
+            {/* <TodoTable /> */}
+            <RestaurantList />
+          </ContentLayout>
         </>
       </Layout>
     </Box>
