@@ -7,6 +7,12 @@ const todoRequests = {
     });
   },
 
+  getOneTodo: async (id) => {
+    return await request(`/todo/findOne/${id}`, {
+      method: "GET",
+    });
+  },
+
   addTodo: async (data) => {
     return await request(`/todo/create`, {
       method: "POST",

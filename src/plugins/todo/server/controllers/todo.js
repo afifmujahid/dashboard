@@ -9,6 +9,18 @@ module.exports = {
     }
   },
 
+  async findOne(ctx) {
+    try {
+      const todoItem = await strapi
+        .plugin("todo")
+        .service("todo")
+        .findOne(ctx.params.id);
+      ctx.body = todoItem;
+    } catch (err) {
+      ctx.throw(500, err);
+    }
+  },
+
   async delete(ctx) {
     try {
       ctx.body = await strapi

@@ -1,19 +1,21 @@
 module.exports = [
   {
     method: "GET",
-    path: "/",
-    handler: "myController.index",
+    path: "/find",
+    handler: "todo.find",
     config: {
       policies: [],
+      auth: false,
     },
   },
 
   {
     method: "GET",
-    path: "/find",
-    handler: "todo.find",
+    path: "/findOne/:id",
+    handler: "todo.findOne",
     config: {
       policies: [],
+      auth: false,
     },
   },
 
