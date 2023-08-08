@@ -72,6 +72,7 @@ const RestaurantDetail = () => {
             display: "grid",
             gridTemplateColumns: "repeat(4, 1fr)",
             rowGap: "16px",
+            gap: "16px",
           }}
         >
           {todoData.map((todo) => (
