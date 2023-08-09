@@ -6,6 +6,7 @@ import {
   Layout,
 } from "@strapi/design-system";
 import RestaurantList from "../../components/Table";
+import EmployeeNumber from "../../components/EmployeeNumber";
 
 const RestaurantPage = () => {
   return (

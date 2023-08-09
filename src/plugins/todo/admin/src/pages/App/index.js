@@ -11,15 +11,20 @@ import { AnErrorOccurred } from "@strapi/helper-plugin";
 import pluginId from "../../pluginId";
 import HomePage from "../HomePage";
 import RestaurantDetail from "../../components/RestaurantDetail";
+import EmployeeNumber from "../../components/EmployeeNumber";
 
 const App = () => {
   return (
     <div>
       <Switch>
         <Route path={`/plugins/${pluginId}`} component={HomePage} exact />
-        <Route
+        {/* <Route
           path={`/plugins/${pluginId}/restaurant/:id`}
           component={RestaurantDetail}
+        /> */}
+        <Route
+          path={`/plugins/${pluginId}/restaurant/:id`}
+          component={EmployeeNumber}
         />
         <Route component={AnErrorOccurred} />
       </Switch>
