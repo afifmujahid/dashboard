@@ -10,6 +10,7 @@ import { Typography } from "@strapi/design-system/Typography";
 import RestaurantDetail from "../../components/RestaurantDetail";
 import EmployeeNumber from "../../components/EmployeeNumber";
 import KeyPersonnel from "../../components/KeyPersonnel";
+import OperatingHour from "../../components/OperatinHour";
 
 const ViewRestaurant = ({ location }) => {
   const restaurantId = location.state.todo.id;
@@ -88,9 +89,7 @@ const ViewRestaurant = ({ location }) => {
           <ContentLayout>
             {selectedStep === 1 && (
               <>
-                <h2 style={{ marginBottom: "28px", fontWeight: "semiBold" }}>
-                  Restaurant Detail
-                </h2>
+                <h2 style={{ marginBottom: "28px" }}>Restaurant Detail</h2>
                 <RestaurantDetail restaurantId={restaurantId} />
               </>
             )}
@@ -108,7 +107,15 @@ const ViewRestaurant = ({ location }) => {
                 <KeyPersonnel restaurantId={restaurantId} />
               </>
             )}
-            {/* {selectedStep === 4 && (
+            {selectedStep === 4 && (
+              <>
+                <h2 style={{ marginBottom: "28px" }}>
+                  Key Personnel Responsible
+                </h2>
+                <OperatingHour restaurantId={restaurantId} />
+              </>
+            )}
+            {/* {selectedStep === 5 && (
               <>
                 <h2 style={{ marginBottom: "28px" }}>
                   Key Personnel Responsible
@@ -116,7 +123,7 @@ const ViewRestaurant = ({ location }) => {
                 <KeyPersonnel restaurantId={restaurantId} />
               </>
             )}
-             {selectedStep === 5 && (
+            {selectedStep === 6 && (
               <>
                 <h2 style={{ marginBottom: "28px" }}>
                   Key Personnel Responsible
@@ -124,15 +131,7 @@ const ViewRestaurant = ({ location }) => {
                 <KeyPersonnel restaurantId={restaurantId} />
               </>
             )}
-             {selectedStep === 6 && (
-              <>
-                <h2 style={{ marginBottom: "28px" }}>
-                  Key Personnel Responsible
-                </h2>
-                <KeyPersonnel restaurantId={restaurantId} />
-              </>
-            )}
-             {selectedStep === 7 && (
+            {selectedStep === 7 && (
               <>
                 <h2 style={{ marginBottom: "28px" }}>
                   Key Personnel Responsible
