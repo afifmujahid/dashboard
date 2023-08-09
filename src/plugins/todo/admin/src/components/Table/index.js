@@ -70,9 +70,6 @@ const RestaurantList = () => {
                   label="View"
                   noBorder
                   icon={<Eye />}
-                  // onClick={() =>
-                  //   history.push(`/plugins/${pluginId}/restaurant/${todo.id}`)
-                  // }
                   onClick={() =>
                     history.push({
                       pathname: `/plugins/${pluginId}/restaurant/${todo.id}`,
