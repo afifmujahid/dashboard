@@ -11,6 +11,7 @@ import RestaurantDetail from "../../components/RestaurantDetail";
 import EmployeeNumber from "../../components/EmployeeNumber";
 import KeyPersonnel from "../../components/KeyPersonnel";
 import OperatingHour from "../../components/OperatinHour";
+import SupportingImage from "../../components/SupportingImage";
 
 const ViewRestaurant = ({ location }) => {
   const restaurantId = location.state.todo.id;
@@ -121,15 +122,13 @@ const ViewRestaurant = ({ location }) => {
                 </div>
               </>
             )}
-            {/* {selectedStep === 5 && (
+            {selectedStep === 5 && (
               <>
-                <h2 style={{ marginBottom: "28px" }}>
-                  Key Personnel Responsible
-                </h2>
-                <KeyPersonnel restaurantId={restaurantId} />
+                <h2 style={{ marginBottom: "28px" }}>Image Attachment</h2>
+                <SupportingImage restaurantId={restaurantId} />
               </>
             )}
-            {selectedStep === 6 && (
+            {/* {selectedStep === 6 && (
               <>
                 <h2 style={{ marginBottom: "28px" }}>
                   Key Personnel Responsible
