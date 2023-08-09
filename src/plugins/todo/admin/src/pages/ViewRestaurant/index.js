@@ -10,7 +10,7 @@ import { Typography } from "@strapi/design-system/Typography";
 import RestaurantDetail from "../../components/RestaurantDetail";
 
 const ViewRestaurant = ({ location }) => {
-  const selectedRestaurant = location.state.todo.id;
+  const restaurantId = location.state.todo.id;
 
   return (
     <Box background="neutral100">
@@ -32,9 +32,7 @@ const ViewRestaurant = ({ location }) => {
                 gap: "16px",
               }}
             >
-              <RestaurantDetail
-                restaurantId={selectedRestaurant}
-              ></RestaurantDetail>
+              <RestaurantDetail restaurantId={restaurantId}></RestaurantDetail>
             </div>
           </ContentLayout>
         </Box>
