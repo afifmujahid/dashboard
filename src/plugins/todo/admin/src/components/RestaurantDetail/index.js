@@ -8,10 +8,9 @@ import {
 } from "@strapi/design-system";
 import { Typography } from "@strapi/design-system/Typography";
 
-const RestaurantDetail = ({ location }) => {
+const RestaurantDetail = ({ restaurantId }) => {
   const [todoData, setTodoData] = useState(null);
-  const selectedRestaurant = location.state.todo.id;
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const selectedRestaurant = restaurantId;
 
   // const handleAuditStatusChange = async (event) => {
   //   const updatedRestaurant = {
@@ -41,59 +40,33 @@ const RestaurantDetail = ({ location }) => {
   }, [selectedRestaurant]);
 
   return (
-    <Box background="neutral100">
-      <Layout>
-        <HeaderLayout title="View Restaurant" as="h2" />
-        <Box
-          background="neutral0"
-          hasRadius={true}
-          shadow="filterShadow"
-          padding={8}
-          style={{ marginTop: "10px" }}
-        >
-          <ContentLayout>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(2, 1fr)",
-                rowGap: "16px",
-                gap: "16px",
-              }}
-            >
-              <Typography>
-                MFW Officer In Charge : {todoData?.officerInCharge}
-              </Typography>
-              <Typography>Trade Name : {todoData?.name}</Typography>
-              <Typography>
-                Business Registration Name : {todoData?.registrationName}
-              </Typography>
-              <Typography>
-                Company Registration No : {todoData?.registrationNo}
-              </Typography>
-              <Typography>Company Status : {todoData?.status}</Typography>
-              <Typography>Company Address : {todoData?.address}</Typography>
-              <Typography>District : {todoData?.district}</Typography>
-              <Typography>Latitude : {todoData?.latitude}</Typography>
-              <Typography>Longitude : {todoData?.longitude}</Typography>
-              <Typography>Postcode : {todoData?.postcode}</Typography>
-              <Typography>City : {todoData?.city}</Typography>
-              <Typography>State : {todoData?.state}</Typography>
-              <Typography>Phone Number : {todoData?.phone}</Typography>
-              <Typography>Email : {todoData?.email}</Typography>
-              <Typography>
-                Number of Shifts : {todoData?.numberOfShift}
-              </Typography>
-              <Typography>
-                Annual Sales Revenue RM : {todoData?.revenue}
-              </Typography>
-              <Typography>Business Type : {todoData?.businessType}</Typography>
-              <Typography>
-                Type of Industry : {todoData?.industryType}
-              </Typography>
-              <Typography>
-                Product Market : {todoData?.productMarket}
-              </Typography>
-              {/* <Typography>
+    <>
+      <Typography>
+        MFW Officer In Charge : {todoData?.officerInCharge}
+      </Typography>
+      <Typography>Trade Name : {todoData?.name}</Typography>
+      <Typography>
+        Business Registration Name : {todoData?.registrationName}
+      </Typography>
+      <Typography>
+        Company Registration No : {todoData?.registrationNo}
+      </Typography>
+      <Typography>Company Status : {todoData?.status}</Typography>
+      <Typography>Company Address : {todoData?.address}</Typography>
+      <Typography>District : {todoData?.district}</Typography>
+      <Typography>Latitude : {todoData?.latitude}</Typography>
+      <Typography>Longitude : {todoData?.longitude}</Typography>
+      <Typography>Postcode : {todoData?.postcode}</Typography>
+      <Typography>City : {todoData?.city}</Typography>
+      <Typography>State : {todoData?.state}</Typography>
+      <Typography>Phone Number : {todoData?.phone}</Typography>
+      <Typography>Email : {todoData?.email}</Typography>
+      <Typography>Number of Shifts : {todoData?.numberOfShift}</Typography>
+      <Typography>Annual Sales Revenue RM : {todoData?.revenue}</Typography>
+      <Typography>Business Type : {todoData?.businessType}</Typography>
+      <Typography>Type of Industry : {todoData?.industryType}</Typography>
+      <Typography>Product Market : {todoData?.productMarket}</Typography>
+      {/* <Typography>
                 Audit Status:
                 <select
                   value={selectedRestaurant.auditStatus}
@@ -110,11 +83,7 @@ const RestaurantDetail = ({ location }) => {
                   <option value="Certified">Certified</option>
                 </select>
               </Typography> */}
-            </div>
-          </ContentLayout>
-        </Box>
-      </Layout>
-    </Box>
+    </>
   );
 };
 

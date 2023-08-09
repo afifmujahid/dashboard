@@ -66,13 +66,12 @@ const RestaurantList = () => {
               </Td>
               <Td>
                 <IconButton
-                  // onClick={() => setIsEdit(true)}
                   label="View"
                   noBorder
                   icon={<Eye />}
                   onClick={() =>
                     history.push({
-                      pathname: `/plugins/${pluginId}/restaurant/${todo.id}`,
+                      pathname: `/plugins/${pluginId}/${todo.id}`,
                       state: { todo },
                     })
                   }
