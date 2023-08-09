@@ -24,19 +24,22 @@ const ViewRestaurant = ({ location }) => {
           padding={8}
           style={{ marginTop: "10px" }}
         >
-          <div style={{ display: "grid", gridTemplateColumns: "400px 1fr" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "200px 1fr" }}>
             <Card
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(4, 1fr)",
                 rowGap: "16px",
-                width: "100px",
-                height: "100px",
-                borderRadius: "20px",
+                width: "48px",
+                height: "48px",
+                borderRadius: "10px",
                 backgroundColor: "#004e5a",
                 color: "white",
+                alignItems: "center",
+                justifyContent: "center",
               }}
-            ></Card>
+            >
+              1
+            </Card>
             <ContentLayout>
               <RestaurantDetail restaurantId={restaurantId}></RestaurantDetail>
             </ContentLayout>
