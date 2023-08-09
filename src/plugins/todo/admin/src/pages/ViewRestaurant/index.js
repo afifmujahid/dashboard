@@ -104,7 +104,7 @@ const ViewRestaurant = ({ location }) => {
                 <h2 style={{ marginBottom: "28px" }}>
                   Key Personnel Responsible
                 </h2>
-                <KeyPersonnel restaurantId={restaurantId} />
+                <KeyPersonnel />
               </>
             )}
             {selectedStep === 4 && (
