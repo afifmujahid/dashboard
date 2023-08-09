@@ -8,9 +8,9 @@ import {
 } from "@strapi/design-system";
 import { Typography } from "@strapi/design-system/Typography";
 
-const EmployeeNumber = ({ location }) => {
+const EmployeeNumber = ({ restaurantId }) => {
   const [todoData, setTodoData] = useState(null);
-  const selectedRestaurant = location.state.todo.id;
+  const selectedRestaurant = restaurantId;
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // const handleAuditStatusChange = async (event) => {
@@ -41,36 +41,24 @@ const EmployeeNumber = ({ location }) => {
   }, [selectedRestaurant]);
 
   return (
-    <Box background="neutral100">
-      <Layout>
-        <HeaderLayout title="Number Of Employee" as="h2" />
-        <Box
-          background="neutral0"
-          hasRadius={true}
-          shadow="filterShadow"
-          padding={8}
-          style={{ marginTop: "10px" }}
-        >
-          <ContentLayout>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(2, 1fr)",
-                rowGap: "16px",
-                gap: "16px",
-              }}
-            >
-              <Typography>
-                Muslim Management : {todoData?.officerInCharge}
-              </Typography>
-              <Typography>Muslim Production : {todoData?.name}</Typography>
-              <Typography>
-                Non-Muslim Management : {todoData?.registrationName}
-              </Typography>
-              <Typography>
-                Non-Muslim Production : {todoData?.registrationNo}
-              </Typography>
-              {/* <Typography>Company Status : {todoData?.status}</Typography>
+    <ContentLayout>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(2, 1fr)",
+          rowGap: "16px",
+          gap: "16px",
+        }}
+      >
+        <Typography>Muslim Management : {todoData?.officerInCharge}</Typography>
+        <Typography>Muslim Production : {todoData?.name}</Typography>
+        <Typography>
+          Non-Muslim Management : {todoData?.registrationName}
+        </Typography>
+        <Typography>
+          Non-Muslim Production : {todoData?.registrationNo}
+        </Typography>
+        {/* <Typography>Company Status : {todoData?.status}</Typography>
               <Typography>Company Address : {todoData?.address}</Typography>
               <Typography>District : {todoData?.district}</Typography>
               <Typography>Latitude : {todoData?.latitude}</Typography>
@@ -93,7 +81,7 @@ const EmployeeNumber = ({ location }) => {
               <Typography>
                 Product Market : {todoData?.productMarket}
               </Typography> */}
-              {/* <Typography>
+        {/* <Typography>
                 Audit Status:
                 <select
                   value={selectedRestaurant.auditStatus}
@@ -110,11 +98,8 @@ const EmployeeNumber = ({ location }) => {
                   <option value="Certified">Certified</option>
                 </select>
               </Typography> */}
-            </div>
-          </ContentLayout>
-        </Box>
-      </Layout>
-    </Box>
+      </div>
+    </ContentLayout>
   );
 };
 

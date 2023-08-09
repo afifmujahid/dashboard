@@ -9,6 +9,7 @@ import {
 } from "@strapi/design-system";
 import { Typography } from "@strapi/design-system/Typography";
 import RestaurantDetail from "../../components/RestaurantDetail";
+import EmployeeNumber from "../../components/EmployeeNumber";
 
 const ViewRestaurant = ({ location }) => {
   const restaurantId = location.state.todo.id;
@@ -41,7 +42,7 @@ const ViewRestaurant = ({ location }) => {
               1
             </Card>
             <ContentLayout>
-              <RestaurantDetail restaurantId={restaurantId}></RestaurantDetail>
+              <EmployeeNumber restaurantId={restaurantId}></EmployeeNumber>
             </ContentLayout>
           </div>
         </Box>
