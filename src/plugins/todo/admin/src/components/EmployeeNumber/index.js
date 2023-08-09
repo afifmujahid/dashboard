@@ -21,25 +21,34 @@ const EmployeeNumber = ({ restaurantId }) => {
   }, [selectedRestaurant]);
 
   return (
-    <ContentLayout>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
-          rowGap: "16px",
-          gap: "16px",
-        }}
-      >
-        <Typography>Muslim Management : {todoData?.officerInCharge}</Typography>
-        <Typography>Muslim Production : {todoData?.name}</Typography>
-        <Typography>
-          Non-Muslim Management : {todoData?.registrationName}
-        </Typography>
-        <Typography>
-          Non-Muslim Production : {todoData?.registrationNo}
-        </Typography>
-      </div>
-    </ContentLayout>
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(3, 1fr)",
+        rowGap: "16px",
+        gap: "16px",
+      }}
+    >
+      <div />
+      <Typography variant="omega" fontWeight="semiBold">
+        Management{" "}
+      </Typography>
+      <Typography variant="omega" fontWeight="semiBold">
+        Production
+      </Typography>
+      <Typography variant="omega" fontWeight="semiBold">
+        Muslim{" "}
+      </Typography>
+      <Typography>Muslim Management: {todoData?.officerInCharge}</Typography>
+      <Typography>Muslim Production: {todoData?.name}</Typography>
+      <Typography variant="omega" fontWeight="semiBold">
+        Non-Muslim{" "}
+      </Typography>
+      <Typography>
+        Non-Muslim Management: {todoData?.registrationName}
+      </Typography>
+      <Typography>Non-Muslim Production: {todoData?.registrationNo}</Typography>
+    </div>
   );
 };
 
