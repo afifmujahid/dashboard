@@ -5,6 +5,7 @@ import {
   HeaderLayout,
   ContentLayout,
   Layout,
+  Card,
 } from "@strapi/design-system";
 import { Typography } from "@strapi/design-system/Typography";
 import RestaurantDetail from "../../components/RestaurantDetail";
@@ -23,18 +24,23 @@ const ViewRestaurant = ({ location }) => {
           padding={8}
           style={{ marginTop: "10px" }}
         >
-          <ContentLayout>
-            <div
+          <div style={{ display: "grid", gridTemplateColumns: "400px 1fr" }}>
+            <Card
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(2, 1fr)",
+                gridTemplateColumns: "repeat(4, 1fr)",
                 rowGap: "16px",
-                gap: "16px",
+                width: "100px",
+                height: "100px",
+                borderRadius: "20px",
+                backgroundColor: "#004e5a",
+                color: "white",
               }}
-            >
+            ></Card>
+            <ContentLayout>
               <RestaurantDetail restaurantId={restaurantId}></RestaurantDetail>
-            </div>
-          </ContentLayout>
+            </ContentLayout>
+          </div>
         </Box>
       </Layout>
     </Box>

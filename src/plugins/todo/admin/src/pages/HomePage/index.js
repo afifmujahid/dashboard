@@ -4,6 +4,8 @@ import {
   HeaderLayout,
   ContentLayout,
   Layout,
+  Card,
+  Flex,
 } from "@strapi/design-system";
 import RestaurantList from "../../components/Table";
 import EmployeeNumber from "../../components/EmployeeNumber";
