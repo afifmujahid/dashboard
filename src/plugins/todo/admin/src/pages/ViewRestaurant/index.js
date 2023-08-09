@@ -89,30 +89,36 @@ const ViewRestaurant = ({ location }) => {
           <ContentLayout>
             {selectedStep === 1 && (
               <>
-                <h2 style={{ marginBottom: "28px" }}>Restaurant Detail</h2>
-                <RestaurantDetail restaurantId={restaurantId} />
+                <Typography variant="beta">Restaurant Detail</Typography>
+                <div style={{ marginTop: "32px" }}>
+                  <RestaurantDetail restaurantId={restaurantId} />
+                </div>
               </>
             )}
             {selectedStep === 2 && (
               <>
-                <h2 style={{ marginBottom: "28px" }}>Employee Number</h2>
-                <EmployeeNumber restaurantId={restaurantId} />
+                <Typography variant="beta">Employee Number</Typography>
+                <div style={{ marginTop: "32px" }}>
+                  <EmployeeNumber restaurantId={restaurantId} />
+                </div>
               </>
             )}
             {selectedStep === 3 && (
               <>
-                <h2 style={{ marginBottom: "28px" }}>
+                <Typography variant="beta">
                   Key Personnel Responsible
-                </h2>
-                <KeyPersonnel restaurantId={restaurantId} />
+                </Typography>
+                <div style={{ marginTop: "32px" }}>
+                  <KeyPersonnel restaurantId={restaurantId} />
+                </div>
               </>
             )}
             {selectedStep === 4 && (
               <>
-                <h2 style={{ marginBottom: "28px" }}>
-                  Key Personnel Responsible
-                </h2>
-                <OperatingHour restaurantId={restaurantId} />
+                <Typography variant="beta">Operating Hour</Typography>
+                <div style={{ marginTop: "32px" }}>
+                  <OperatingHour restaurantId={restaurantId} />
+                </div>
               </>
             )}
             {/* {selectedStep === 5 && (
