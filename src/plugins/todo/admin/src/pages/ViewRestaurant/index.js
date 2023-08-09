@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import todoRequests from "../../api/todo";
+import React, { useState } from "react";
 import {
   Box,
   HeaderLayout,
@@ -10,6 +9,7 @@ import {
 import { Typography } from "@strapi/design-system/Typography";
 import RestaurantDetail from "../../components/RestaurantDetail";
 import EmployeeNumber from "../../components/EmployeeNumber";
+import KeyPersonnel from "../../components/KeyPersonnel";
 
 const ViewRestaurant = ({ location }) => {
   const restaurantId = location.state.todo.id;
@@ -100,6 +100,46 @@ const ViewRestaurant = ({ location }) => {
                 <EmployeeNumber restaurantId={restaurantId} />
               </>
             )}
+            {selectedStep === 3 && (
+              <>
+                <h2 style={{ marginBottom: "28px" }}>
+                  Key Personnel Responsible
+                </h2>
+                <KeyPersonnel restaurantId={restaurantId} />
+              </>
+            )}
+            {/* {selectedStep === 4 && (
+              <>
+                <h2 style={{ marginBottom: "28px" }}>
+                  Key Personnel Responsible
+                </h2>
+                <KeyPersonnel restaurantId={restaurantId} />
+              </>
+            )}
+             {selectedStep === 5 && (
+              <>
+                <h2 style={{ marginBottom: "28px" }}>
+                  Key Personnel Responsible
+                </h2>
+                <KeyPersonnel restaurantId={restaurantId} />
+              </>
+            )}
+             {selectedStep === 6 && (
+              <>
+                <h2 style={{ marginBottom: "28px" }}>
+                  Key Personnel Responsible
+                </h2>
+                <KeyPersonnel restaurantId={restaurantId} />
+              </>
+            )}
+             {selectedStep === 7 && (
+              <>
+                <h2 style={{ marginBottom: "28px" }}>
+                  Key Personnel Responsible
+                </h2>
+                <KeyPersonnel restaurantId={restaurantId} />
+              </>
+            )} */}
           </ContentLayout>
         </Box>
       </Layout>

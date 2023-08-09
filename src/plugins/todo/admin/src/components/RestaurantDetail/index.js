@@ -1,14 +1,6 @@
 import React, { useState, useEffect } from "react";
 import todoRequests from "../../api/todo";
-import {
-  Box,
-  HeaderLayout,
-  ContentLayout,
-  Layout,
-  Card,
-  Flex,
-  gridTemplateColumns,
-} from "@strapi/design-system";
+import { ContentLayout } from "@strapi/design-system";
 import { Typography } from "@strapi/design-system/Typography";
 
 const RestaurantDetail = ({ restaurantId }) => {

@@ -3,13 +3,12 @@ import todoRequests from "../../api/todo";
 import { ContentLayout } from "@strapi/design-system";
 import { Typography } from "@strapi/design-system/Typography";
 
-const EmployeeNumber = ({ restaurantId }) => {
+const KeyPersonnel = ({ restaurantId }) => {
   const [todoData, setTodoData] = useState(null);
   const selectedRestaurant = restaurantId;
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    async function fetchEmployeeNumbers() {
+    async function fetchKeyPersonnels() {
       try {
         const todo = await todoRequests.getOneTodo(selectedRestaurant);
         setTodoData(todo);
@@ -17,7 +16,7 @@ const EmployeeNumber = ({ restaurantId }) => {
         console.error("Error fetching todo:", error);
       }
     }
-    fetchEmployeeNumbers();
+    fetchKeyPersonnels();
   }, [selectedRestaurant]);
 
   return (
@@ -30,17 +29,15 @@ const EmployeeNumber = ({ restaurantId }) => {
           gap: "16px",
         }}
       >
-        <Typography>Muslim Management : {todoData?.officerInCharge}</Typography>
-        <Typography>Muslim Production : {todoData?.name}</Typography>
-        <Typography>
-          Non-Muslim Management : {todoData?.registrationName}
-        </Typography>
-        <Typography>
-          Non-Muslim Production : {todoData?.registrationNo}
-        </Typography>
+        <Typography>Name : {todoData?.officerInCharge}</Typography>
+        <Typography>Position : {todoData?.name}</Typography>
+        <Typography>Email : {todoData?.registrationName}</Typography>
+        <Typography>Phone : {todoData?.registrationNo}</Typography>
+        <Typography>Work From : {todoData?.status}</Typography>
+        <Typography>Work To : {todoData?.address}</Typography>
       </div>
     </ContentLayout>
   );
 };
 
-export default EmployeeNumber;
+export default KeyPersonnel;
