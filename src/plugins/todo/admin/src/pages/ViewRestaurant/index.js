@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import todoRequests from "../../api/todo";
+import React from "react";
 import {
   Box,
   HeaderLayout,
@@ -10,6 +9,7 @@ import {
 import { Typography } from "@strapi/design-system/Typography";
 import RestaurantDetail from "../../components/RestaurantDetail";
 import EmployeeNumber from "../../components/EmployeeNumber";
+import KeyPersonnel from "../../components/KeyPersonnel";
 
 const ViewRestaurant = ({ location }) => {
   const restaurantId = location.state.todo.id;
@@ -42,7 +42,7 @@ const ViewRestaurant = ({ location }) => {
               1
             </Card>
             <ContentLayout>
-              <EmployeeNumber restaurantId={restaurantId}></EmployeeNumber>
+              <KeyPersonnel restaurantId={restaurantId}></KeyPersonnel>
             </ContentLayout>
           </div>
         </Box>
