@@ -13,6 +13,7 @@ import KeyPersonnel from "../../components/KeyPersonnel";
 import OperatingHour from "../../components/OperatinHour";
 import SupportingImage from "../../components/SupportingImage";
 import SupportingDocument from "../../components/SupportingDocument";
+import Cleanliness from "../../components/Cleanliness";
 
 const ViewRestaurant = ({ location }) => {
   const restaurantId = location.state.todo.id;
@@ -55,7 +56,13 @@ const ViewRestaurant = ({ location }) => {
             gridTemplateColumns: "300px 1px 1fr",
           }}
         >
-          <div style={{ display: "grid", rowGap: "16px" }}>
+          <div
+            style={{
+              display: "grid",
+              rowGap: "16px",
+              maxHeight: "420px",
+            }}
+          >
             {steps.map((step) => (
               <div
                 key={step}
@@ -136,14 +143,14 @@ const ViewRestaurant = ({ location }) => {
                 <SupportingDocument restaurantId={restaurantId} />
               </>
             )}
-            {/* {selectedStep === 7 && (
+            {selectedStep === 7 && (
               <>
-                <h2 style={{ marginBottom: "28px" }}>
-                  Key Personnel Responsible
-                </h2>
-                <KeyPersonnel restaurantId={restaurantId} />
+                <Typography variant="beta">Cleanliness</Typography>
+                <div style={{ marginTop: "32px" }}>
+                  <Cleanliness restaurantId={restaurantId} />
+                </div>
               </>
-            )} */}
+            )}
           </ContentLayout>
         </Box>
       </Layout>
