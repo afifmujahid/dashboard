@@ -51,7 +51,7 @@ const ViewRestaurant = ({ location }) => {
           style={{
             marginTop: "10px",
             display: "grid",
-            gridTemplateColumns: "300px 1fr",
+            gridTemplateColumns: "300px 1px 1fr",
           }}
         >
           <div style={{ display: "grid", rowGap: "16px" }}>
@@ -87,6 +87,7 @@ const ViewRestaurant = ({ location }) => {
               </div>
             ))}
           </div>
+          <div style={{ borderLeft: "1px solid #ccc" }} />
           <ContentLayout>
             {selectedStep === 1 && (
               <>
