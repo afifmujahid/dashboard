@@ -7,7 +7,7 @@ import {
   Card,
   Flex,
 } from "@strapi/design-system";
-import RestaurantList from "../../components/Table";
+import RestaurantList from "../../components/RestaurantList";
 
 const RestaurantPage = () => {
   return (
