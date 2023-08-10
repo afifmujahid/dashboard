@@ -13,7 +13,7 @@ const RestaurantPage = () => {
   return (
     <Box background="neutral100">
       <Layout>
-        <HeaderLayout title="Restaurant" as="h2" />
+        <HeaderLayout title="Restaurant List" as="h2" />
         <ContentLayout>
           <RestaurantList />
         </ContentLayout>
