@@ -4,9 +4,7 @@ import {
   CarouselInput,
   CarouselSlide,
   CarouselImage,
-  CarouselActions,
 } from "@strapi/design-system";
-import { Typography } from "@strapi/design-system/Typography";
 
 const SupportingImage = ({ restaurantId }) => {
   const [todoData, setTodoData] = useState(null);
