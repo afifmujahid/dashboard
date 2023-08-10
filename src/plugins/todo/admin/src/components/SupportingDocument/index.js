@@ -28,7 +28,7 @@ const SupportingDocument = ({ restaurantId }) => {
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "repeat(2, 1fr)",
+        gridTemplateColumns: "repeat(3, 1fr)",
         rowGap: "16px",
         gap: "16px",
       }}
