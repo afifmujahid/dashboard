@@ -65,6 +65,19 @@ const SupportingDocument = ({ restaurantId }) => {
           </CardContent>
         </CardBody>
       </Card>
+      <Card
+        style={{
+          width: "240px",
+        }}
+        id="fourth"
+      >
+        <CardBody>
+          <CardContent paddingLeft={2}>
+            <CardTitle>File Name</CardTitle>
+            <CardSubtitle>Business License</CardSubtitle>
+          </CardContent>
+        </CardBody>
+      </Card>
     </div>
   );
 };

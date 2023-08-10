@@ -35,14 +35,32 @@ const SupportingImage = ({ restaurantId }) => {
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "repeat(2, 1fr)",
+        gridTemplateColumns: "repeat(3, 1fr)",
         rowGap: "16px",
         gap: "16px",
       }}
     >
       <CarouselInput
         selectedSlide={selectedIndex}
-        label="premises"
+        label="Premises"
+        onNext={handleNext}
+        onPrevious={handlePrevious}
+        previousLabel="Previous slide"
+        nextLabel="Next slide"
+      >
+        <CarouselSlide label="1 of 3 slides">
+          <CarouselImage src={"/first.jpg"} alt="First" />
+        </CarouselSlide>
+        <CarouselSlide label="2 of 3 slides">
+          <CarouselImage src={"/second.png"} alt="second" />
+        </CarouselSlide>
+        <CarouselSlide label="3 of 3 slides">
+          <CarouselImage src={"/third.png"} alt="third" />
+        </CarouselSlide>
+      </CarouselInput>
+      <CarouselInput
+        selectedSlide={selectedIndex}
+        label="Dry Kitchen"
         onNext={handleNext}
         onPrevious={handlePrevious}
         previousLabel="Previous slide"
