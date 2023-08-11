@@ -10,7 +10,7 @@ import { Typography } from "@strapi/design-system/Typography";
 import RestaurantDetail from "../../components/RestaurantDetail";
 import EmployeeNumber from "../../components/EmployeeNumber";
 import KeyPersonnel from "../../components/KeyPersonnel";
-import OperatingHour from "../../components/OperatinHour";
+import OperatingHour from "../../components/OperatingHour";
 import SupportingImage from "../../components/SupportingImage";
 import SupportingDocument from "../../components/SupportingDocument";
 import Cleanliness from "../../components/Cleanliness";

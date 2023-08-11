@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import todoRequests from "../../api/todo";
-import { ContentLayout } from "@strapi/design-system";
 import { Typography } from "@strapi/design-system";
 
 const OperatingHour = ({ restaurantId }) => {

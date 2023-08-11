@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import todoRequests from "../../api/todo";
 import { ContentLayout } from "@strapi/design-system";
 import { Typography } from "@strapi/design-system/Typography";
+import { useRestaurant } from "./constant";
 
 const RestaurantDetail = ({ restaurantId }) => {
   const [todoData, setTodoData] = useState(null);
   const selectedRestaurant = restaurantId;
+  const RESTAURANT_DETAIL = useRestaurant(todoData);
 
   // const handleAuditStatusChange = async (event) => {
   //   const updatedRestaurant = {
@@ -43,31 +45,11 @@ const RestaurantDetail = ({ restaurantId }) => {
         gap: "16px",
       }}
     >
-      <Typography>
-        MFW Officer In Charge : {todoData?.officerInCharge}
-      </Typography>
-      <Typography>Trade Name : {todoData?.name}</Typography>
-      <Typography>
-        Business Registration Name : {todoData?.registrationName}
-      </Typography>
-      <Typography>
-        Company Registration No : {todoData?.registrationNo}
-      </Typography>
-      <Typography>Company Status : {todoData?.status}</Typography>
-      <Typography>Company Address : {todoData?.address}</Typography>
-      <Typography>District : {todoData?.district}</Typography>
-      <Typography>Latitude : {todoData?.latitude}</Typography>
-      <Typography>Longitude : {todoData?.longitude}</Typography>
-      <Typography>Postcode : {todoData?.postcode}</Typography>
-      <Typography>City : {todoData?.city}</Typography>
-      <Typography>State : {todoData?.state}</Typography>
-      <Typography>Phone Number : {todoData?.phone}</Typography>
-      <Typography>Email : {todoData?.email}</Typography>
-      <Typography>Number of Shifts : {todoData?.numberOfShift}</Typography>
-      <Typography>Annual Sales Revenue RM : {todoData?.revenue}</Typography>
-      <Typography>Business Type : {todoData?.businessType}</Typography>
-      <Typography>Type of Industry : {todoData?.industryType}</Typography>
-      <Typography>Product Market : {todoData?.productMarket}</Typography>
+      {RESTAURANT_DETAIL.map((item, index) => (
+        <Typography key={index}>
+          {item.label}: {item.value}
+        </Typography>
+      ))}
       {/* <Typography>
                 Audit Status:
                 <select
