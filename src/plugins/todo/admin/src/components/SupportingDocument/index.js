@@ -13,7 +13,7 @@ const SupportingDocument = ({ restaurantId }) => {
   const selectedRestaurant = restaurantId;
 
   useEffect(() => {
-    async function fetchRestaurantDetails() {
+    async function fetchSupportingDocument() {
       try {
         const todo = await todoRequests.getOneTodo(selectedRestaurant);
         setTodoData(todo);
@@ -21,8 +21,19 @@ const SupportingDocument = ({ restaurantId }) => {
         console.error("Error fetching todo:", error);
       }
     }
-    fetchRestaurantDetails();
+    fetchSupportingDocument();
   }, [selectedRestaurant]);
+
+  const documents = [
+    {
+      fileName: "Company Registeration Certificate",
+      subtitle: "Company Registeration Certificate",
+    },
+    {
+      fileName: "Business License",
+      subtitle: "Business License",
+    },
+  ];
 
   return (
     <div
@@ -33,32 +44,22 @@ const SupportingDocument = ({ restaurantId }) => {
         gap: "16px",
       }}
     >
-      <Card
-        style={{
-          width: "240px",
-        }}
-        id="fourth"
-      >
-        <CardBody>
-          <CardContent paddingLeft={2}>
-            <CardTitle>File Name</CardTitle>
-            <CardSubtitle>Company Registeration Certificate</CardSubtitle>
-          </CardContent>
-        </CardBody>
-      </Card>
-      <Card
-        style={{
-          width: "240px",
-        }}
-        id="fourth"
-      >
-        <CardBody>
-          <CardContent paddingLeft={2}>
-            <CardTitle>File Name</CardTitle>
-            <CardSubtitle>Business License</CardSubtitle>
-          </CardContent>
-        </CardBody>
-      </Card>
+      {documents.map((document, index) => (
+        <Card
+          key={index}
+          style={{
+            width: "240px",
+          }}
+          id={`document-${index}`}
+        >
+          <CardBody>
+            <CardContent paddingLeft={2}>
+              <CardTitle>File Name</CardTitle>
+              <CardSubtitle>{document.subtitle}</CardSubtitle>
+            </CardContent>
+          </CardBody>
+        </Card>
+      ))}
     </div>
   );
 };

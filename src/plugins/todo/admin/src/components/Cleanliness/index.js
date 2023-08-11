@@ -6,9 +6,10 @@ const Cleanliness = ({ restaurantId }) => {
   const [todoData, setTodoData] = useState(null);
   const selectedRestaurant = restaurantId;
   const CLEANLINESS_CHECKLIST = useCleanliness(todoData);
+  const [isSubItemsChecked, setIsSubItemsChecked] = useState(false);
 
   useEffect(() => {
-    async function fetchRestaurantDetails() {
+    async function fetchCleanliness() {
       try {
         const todo = await todoRequests.getOneTodo(selectedRestaurant);
         setTodoData(todo);
@@ -16,7 +17,7 @@ const Cleanliness = ({ restaurantId }) => {
         console.error("Error fetching todo:", error);
       }
     }
-    fetchRestaurantDetails();
+    fetchCleanliness();
   }, [selectedRestaurant]);
 
   const renderCheckbox = (data) => {

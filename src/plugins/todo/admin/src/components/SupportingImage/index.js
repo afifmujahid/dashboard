@@ -18,7 +18,7 @@ const SupportingImage = ({ restaurantId }) => {
   };
 
   useEffect(() => {
-    async function fetchRestaurantDetails() {
+    async function fetchSupportingImage() {
       try {
         const todo = await todoRequests.getOneTodo(selectedRestaurant);
         setTodoData(todo);
@@ -26,7 +26,7 @@ const SupportingImage = ({ restaurantId }) => {
         console.error("Error fetching todo:", error);
       }
     }
-    fetchRestaurantDetails();
+    fetchSupportingImage();
   }, [selectedRestaurant]);
 
   return (

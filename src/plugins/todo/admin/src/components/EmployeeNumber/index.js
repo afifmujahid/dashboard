@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import todoRequests from "../../api/todo";
-import { ContentLayout } from "@strapi/design-system";
 import { Typography } from "@strapi/design-system/Typography";
 
 const EmployeeNumber = ({ restaurantId }) => {
   const [todoData, setTodoData] = useState(null);
   const selectedRestaurant = restaurantId;
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     async function fetchEmployeeNumbers() {
@@ -30,20 +28,12 @@ const EmployeeNumber = ({ restaurantId }) => {
       }}
     >
       <div />
-      <Typography variant="omega" fontWeight="semiBold">
-        Management{" "}
-      </Typography>
-      <Typography variant="omega" fontWeight="semiBold">
-        Production
-      </Typography>
-      <Typography variant="omega" fontWeight="semiBold">
-        Muslim{" "}
-      </Typography>
+      <Typography fontWeight="semiBold">Management</Typography>
+      <Typography fontWeight="semiBold">Production</Typography>
+      <Typography fontWeight="semiBold">Muslim</Typography>
       <Typography>Muslim Management: {todoData?.officerInCharge}</Typography>
       <Typography>Muslim Production: {todoData?.name}</Typography>
-      <Typography variant="omega" fontWeight="semiBold">
-        Non-Muslim{" "}
-      </Typography>
+      <Typography fontWeight="semiBold">Non-Muslim</Typography>
       <Typography>
         Non-Muslim Management: {todoData?.registrationName}
       </Typography>

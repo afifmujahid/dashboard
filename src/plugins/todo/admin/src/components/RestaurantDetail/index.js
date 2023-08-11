@@ -47,7 +47,7 @@ const RestaurantDetail = ({ restaurantId }) => {
     >
       {RESTAURANT_DETAIL.map((item, index) => (
         <Typography key={index}>
-          {item.label}: {item.value}
+          <span style={{ fontWeight: "500" }}>{item.label} :</span> {item.value}
         </Typography>
       ))}
       {/* <Typography>

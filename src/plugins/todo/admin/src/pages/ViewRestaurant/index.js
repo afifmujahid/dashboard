@@ -133,14 +133,18 @@ const ViewRestaurant = ({ location }) => {
             )}
             {selectedStep === 5 && (
               <>
-                <h2 style={{ marginBottom: "28px" }}>Image Attachment</h2>
-                <SupportingImage restaurantId={restaurantId} />
+                <Typography variant="beta">Image</Typography>
+                <div style={{ marginTop: "32px" }}>
+                  <SupportingImage restaurantId={restaurantId} />
+                </div>
               </>
             )}
             {selectedStep === 6 && (
               <>
-                <h2 style={{ marginBottom: "28px" }}>Supporting Document</h2>
-                <SupportingDocument restaurantId={restaurantId} />
+                <Typography variant="beta">Document</Typography>
+                <div style={{ marginTop: "32px" }}>
+                  <SupportingDocument restaurantId={restaurantId} />
+                </div>
               </>
             )}
             {selectedStep === 7 && (

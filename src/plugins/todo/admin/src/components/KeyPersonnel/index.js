@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
 import todoRequests from "../../api/todo";
-import pluginId from "../../pluginId";
 import { Table, Thead, Tbody, Tr, Td, Th } from "@strapi/design-system/Table";
 import { Typography } from "@strapi/design-system/Typography";
-import { IconButton } from "@strapi/design-system/IconButton";
-import Eye from "@strapi/icons/Eye";
 
 const KeyPersonnel = () => {
-  const history = useHistory();
   const [todoData, setTodoData] = useState([]);
   useEffect(() => {
     async function fetchTodos() {

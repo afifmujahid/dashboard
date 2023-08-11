@@ -7,7 +7,7 @@ const OperatingHour = ({ restaurantId }) => {
   const selectedRestaurant = restaurantId;
 
   useEffect(() => {
-    async function fetchRestaurantDetails() {
+    async function fetchOperatingHour() {
       try {
         const todo = await todoRequests.getOneTodo(selectedRestaurant);
         setTodoData(todo);
@@ -15,7 +15,7 @@ const OperatingHour = ({ restaurantId }) => {
         console.error("Error fetching todo:", error);
       }
     }
-    fetchRestaurantDetails();
+    fetchOperatingHour();
   }, [selectedRestaurant]);
 
   return (
@@ -28,59 +28,29 @@ const OperatingHour = ({ restaurantId }) => {
       }}
     >
       <div />
-      <Typography variant="omega" fontWeight="semiBold">
-        From
-      </Typography>
-      <Typography variant="omega" fontWeight="semiBold">
-        To
-      </Typography>
-      <Typography variant="omega" fontWeight="semiBold">
-        Sunday
-      </Typography>
-      <Typography className="font-semibold">
-        Sunday From: {todoData?.name}
-      </Typography>
-      <Typography className="font-semibold">
-        Sunday To: {todoData?.name}
-      </Typography>
-      <Typography variant="omega" fontWeight="semiBold">
-        Monday
-      </Typography>
-      <Typography className="font-semibold">
-        Monday From: {todoData?.name}
-      </Typography>
-      <Typography className="font-semibold">
-        Monday To: {todoData?.name}
-      </Typography>
-      <Typography variant="omega" fontWeight="semiBold">
-        Tuesday
-      </Typography>
-      <Typography className="font-semibold">
-        Tuesday From: {todoData?.name}
-      </Typography>
-      <Typography className="font-semibold">
-        Tuesday To: {todoData?.name}
-      </Typography>
-      <Typography variant="omega" fontWeight="semiBold">
-        Wednesday
-      </Typography>
-      <Typography className="font-semibold">Wednesday From:</Typography>
-      <Typography className="font-semibold">Wednesday To:</Typography>
-      <Typography variant="omega" fontWeight="semiBold">
-        Thursday
-      </Typography>
-      <Typography className="font-semibold">Thursday From:</Typography>
-      <Typography className="font-semibold">Thursday To:</Typography>
-      <Typography variant="omega" fontWeight="semiBold">
-        Friday
-      </Typography>
-      <Typography className="font-semibold">Friday From:</Typography>
-      <Typography className="font-semibold">Friday To:</Typography>
-      <Typography variant="omega" fontWeight="semiBold">
-        Saturday
-      </Typography>
-      <Typography className="font-semibold">Saturday From:</Typography>
-      <Typography className="font-semibold">Saturday To:</Typography>
+      <Typography fontWeight="semiBold">From</Typography>
+      <Typography fontWeight="semiBold">To</Typography>
+      <Typography fontWeight="semiBold">Sunday</Typography>
+      <Typography>{todoData?.name}</Typography>
+      <Typography>{todoData?.registrationName}</Typography>
+      <Typography fontWeight="semiBold">Monday</Typography>
+      <Typography>{todoData?.status}</Typography>
+      <Typography>{todoData?.district}</Typography>
+      <Typography fontWeight="semiBold">Tuesday</Typography>
+      <Typography>{todoData?.latitude}</Typography>
+      <Typography>{todoData?.longitude}</Typography>
+      <Typography fontWeight="semiBold">Wednesday</Typography>
+      <Typography></Typography>
+      <Typography></Typography>
+      <Typography fontWeight="semiBold">Thursday</Typography>
+      <Typography></Typography>
+      <Typography></Typography>
+      <Typography fontWeight="semiBold">Friday</Typography>
+      <Typography></Typography>
+      <Typography></Typography>
+      <Typography fontWeight="semiBold">Saturday</Typography>
+      <Typography></Typography>
+      <Typography></Typography>
     </div>
   );
 };
