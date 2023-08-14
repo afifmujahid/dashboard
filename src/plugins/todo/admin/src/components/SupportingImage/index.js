@@ -5,10 +5,12 @@ import {
   CarouselSlide,
   CarouselImage,
 } from "@strapi/design-system";
+import { useSupportingImage } from "./constant";
 
 const SupportingImage = ({ restaurantId }) => {
   const [todoData, setTodoData] = useState(null);
   const selectedRestaurant = restaurantId;
+  const SUPPORTING_IMAGE = useSupportingImage(todoData);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const handleNext = () => {
     setSelectedIndex((current) => (current < 2 ? current + 1 : 0));
@@ -38,42 +40,27 @@ const SupportingImage = ({ restaurantId }) => {
         gap: "16px",
       }}
     >
-      <CarouselInput
-        selectedSlide={selectedIndex}
-        label="Premises"
-        onNext={handleNext}
-        onPrevious={handlePrevious}
-        previousLabel="Previous slide"
-        nextLabel="Next slide"
-      >
-        <CarouselSlide label="1 of 3 slides">
-          <CarouselImage src={"/first.jpg"} alt="First" />
-        </CarouselSlide>
-        <CarouselSlide label="2 of 3 slides">
-          <CarouselImage src={"/second.png"} alt="second" />
-        </CarouselSlide>
-        <CarouselSlide label="3 of 3 slides">
-          <CarouselImage src={"/third.png"} alt="third" />
-        </CarouselSlide>
-      </CarouselInput>
-      <CarouselInput
-        selectedSlide={selectedIndex}
-        label="Dry Kitchen"
-        onNext={handleNext}
-        onPrevious={handlePrevious}
-        previousLabel="Previous slide"
-        nextLabel="Next slide"
-      >
-        <CarouselSlide label="1 of 3 slides">
-          <CarouselImage src={"/first.jpg"} alt="First" />
-        </CarouselSlide>
-        <CarouselSlide label="2 of 3 slides">
-          <CarouselImage src={"/second.png"} alt="second" />
-        </CarouselSlide>
-        <CarouselSlide label="3 of 3 slides">
-          <CarouselImage src={"/third.png"} alt="third" />
-        </CarouselSlide>
-      </CarouselInput>
+      {SUPPORTING_IMAGE.map((item, index) => (
+        <CarouselInput
+          key={index}
+          selectedSlide={selectedIndex}
+          label={item.label}
+          onNext={handleNext}
+          onPrevious={handlePrevious}
+          previousLabel="Previous slide"
+          nextLabel="Next slide"
+        >
+          <CarouselSlide label="1 of 3 slides">
+            <CarouselImage src={"/first.jpg"} alt="First" />
+          </CarouselSlide>
+          <CarouselSlide label="2 of 3 slides">
+            <CarouselImage src={"/second.png"} alt="second" />
+          </CarouselSlide>
+          <CarouselSlide label="3 of 3 slides">
+            <CarouselImage src={"/third.png"} alt="third" />
+          </CarouselSlide>
+        </CarouselInput>
+      ))}
     </div>
   );
 };

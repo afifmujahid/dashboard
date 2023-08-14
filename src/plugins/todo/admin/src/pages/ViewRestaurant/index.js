@@ -60,7 +60,7 @@ const ViewRestaurant = ({ location }) => {
             style={{
               display: "grid",
               rowGap: "16px",
-              maxHeight: "540px",
+              maxHeight: "500px",
               padding: "40px",
             }}
           >

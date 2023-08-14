@@ -7,10 +7,12 @@ import {
   CardTitle,
   CardSubtitle,
 } from "@strapi/design-system";
+import { useSupportingDocument } from "./constant";
 
 const SupportingDocument = ({ restaurantId }) => {
   const [todoData, setTodoData] = useState(null);
   const selectedRestaurant = restaurantId;
+  const SUPPORTING_DOCUMENT = useSupportingDocument(todoData);
 
   useEffect(() => {
     async function fetchSupportingDocument() {
@@ -24,17 +26,6 @@ const SupportingDocument = ({ restaurantId }) => {
     fetchSupportingDocument();
   }, [selectedRestaurant]);
 
-  const documents = [
-    {
-      fileName: "Company Registeration Certificate",
-      subtitle: "Company Registeration Certificate",
-    },
-    {
-      fileName: "Business License",
-      subtitle: "Business License",
-    },
-  ];
-
   return (
     <div
       style={{
@@ -44,18 +35,17 @@ const SupportingDocument = ({ restaurantId }) => {
         gap: "16px",
       }}
     >
-      {documents.map((document, index) => (
+      {SUPPORTING_DOCUMENT.map((item, index) => (
         <Card
           key={index}
           style={{
             width: "240px",
           }}
-          id={`document-${index}`}
         >
           <CardBody>
             <CardContent paddingLeft={2}>
-              <CardTitle>File Name</CardTitle>
-              <CardSubtitle>{document.subtitle}</CardSubtitle>
+              <CardTitle>{item.fileName}</CardTitle>
+              <CardSubtitle>{item.title}</CardSubtitle>
             </CardContent>
           </CardBody>
         </Card>
