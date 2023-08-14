@@ -49,7 +49,6 @@ const ViewRestaurant = ({ location }) => {
           background="neutral0"
           hasRadius={true}
           shadow="filterShadow"
-          padding={8}
           style={{
             marginTop: "10px",
             display: "grid",
@@ -60,7 +59,7 @@ const ViewRestaurant = ({ location }) => {
             style={{
               display: "grid",
               rowGap: "16px",
-              maxHeight: "420px",
+              padding: "40px",
             }}
           >
             {steps.map((step) => (
@@ -97,64 +96,66 @@ const ViewRestaurant = ({ location }) => {
           </div>
           <div style={{ borderLeft: "1px solid #ccc" }} />
           <ContentLayout>
-            {selectedStep === 1 && (
-              <>
-                <Typography variant="beta">Restaurant Detail</Typography>
-                <div style={{ marginTop: "32px" }}>
-                  <RestaurantDetail restaurantId={restaurantId} />
-                </div>
-              </>
-            )}
-            {selectedStep === 2 && (
-              <>
-                <Typography variant="beta">Employee Number</Typography>
-                <div style={{ marginTop: "32px" }}>
-                  <EmployeeNumber restaurantId={restaurantId} />
-                </div>
-              </>
-            )}
-            {selectedStep === 3 && (
-              <>
-                <Typography variant="beta">
-                  Key Personnel Responsible
-                </Typography>
-                <div style={{ marginTop: "32px" }}>
-                  <KeyPersonnel restaurantId={restaurantId} />
-                </div>
-              </>
-            )}
-            {selectedStep === 4 && (
-              <>
-                <Typography variant="beta">Operating Hour</Typography>
-                <div style={{ marginTop: "32px" }}>
-                  <OperatingHour restaurantId={restaurantId} />
-                </div>
-              </>
-            )}
-            {selectedStep === 5 && (
-              <>
-                <Typography variant="beta">Image</Typography>
-                <div style={{ marginTop: "32px" }}>
-                  <SupportingImage restaurantId={restaurantId} />
-                </div>
-              </>
-            )}
-            {selectedStep === 6 && (
-              <>
-                <Typography variant="beta">Document</Typography>
-                <div style={{ marginTop: "32px" }}>
-                  <SupportingDocument restaurantId={restaurantId} />
-                </div>
-              </>
-            )}
-            {selectedStep === 7 && (
-              <>
-                <Typography variant="beta">Cleanliness</Typography>
-                <div style={{ marginTop: "32px" }}>
-                  <Cleanliness restaurantId={restaurantId} />
-                </div>
-              </>
-            )}
+            <div style={{ padding: "40px" }}>
+              {selectedStep === 1 && (
+                <>
+                  <Typography variant="beta">Restaurant Detail</Typography>
+                  <div style={{ marginTop: "32px" }}>
+                    <RestaurantDetail restaurantId={restaurantId} />
+                  </div>
+                </>
+              )}
+              {selectedStep === 2 && (
+                <>
+                  <Typography variant="beta">Employee Number</Typography>
+                  <div style={{ marginTop: "32px" }}>
+                    <EmployeeNumber restaurantId={restaurantId} />
+                  </div>
+                </>
+              )}
+              {selectedStep === 3 && (
+                <>
+                  <Typography variant="beta">
+                    Key Personnel Responsible
+                  </Typography>
+                  <div style={{ marginTop: "32px" }}>
+                    <KeyPersonnel restaurantId={restaurantId} />
+                  </div>
+                </>
+              )}
+              {selectedStep === 4 && (
+                <>
+                  <Typography variant="beta">Operating Hour</Typography>
+                  <div style={{ marginTop: "32px" }}>
+                    <OperatingHour restaurantId={restaurantId} />
+                  </div>
+                </>
+              )}
+              {selectedStep === 5 && (
+                <>
+                  <Typography variant="beta">Image</Typography>
+                  <div style={{ marginTop: "32px" }}>
+                    <SupportingImage restaurantId={restaurantId} />
+                  </div>
+                </>
+              )}
+              {selectedStep === 6 && (
+                <>
+                  <Typography variant="beta">Document</Typography>
+                  <div style={{ marginTop: "32px" }}>
+                    <SupportingDocument restaurantId={restaurantId} />
+                  </div>
+                </>
+              )}
+              {selectedStep === 7 && (
+                <>
+                  <Typography variant="beta">Cleanliness</Typography>
+                  <div style={{ marginTop: "32px" }}>
+                    <Cleanliness restaurantId={restaurantId} />
+                  </div>
+                </>
+              )}
+            </div>
           </ContentLayout>
         </Box>
       </Layout>
