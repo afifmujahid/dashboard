@@ -42,18 +42,18 @@ const ViewRestaurant = ({ location }) => {
     }
   };
   return (
-    <Box background="neutral100">
+    <Box background="neutral100" padding={8}>
       <Layout>
         <HeaderLayout title="View Restaurant" as="h2" />
         <Box
           background="neutral0"
           hasRadius={true}
           shadow="filterShadow"
-          // padding={8}
           style={{
             marginTop: "10px",
             display: "grid",
             gridTemplateColumns: "300px 1px 1fr",
+            borderRadius: "40px",
           }}
         >
           <div
