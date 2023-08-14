@@ -48,7 +48,16 @@ const RestaurantList = () => {
   return (
     <div style={{ display: "grid", rowGap: "15px " }}>
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
-        <Button onClick={exportToExcel}>Export to Excel</Button>
+        <Button
+          onClick={exportToExcel}
+          style={{
+            backgroundColor: "#004e5a",
+            borderColor: "#004e5a",
+            color: "white",
+          }}
+        >
+          Export to Excel
+        </Button>
       </div>
       <Table>
         <Thead>
