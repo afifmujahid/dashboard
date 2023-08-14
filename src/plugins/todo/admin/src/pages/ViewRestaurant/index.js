@@ -49,6 +49,7 @@ const ViewRestaurant = ({ location }) => {
           background="neutral0"
           hasRadius={true}
           shadow="filterShadow"
+          // padding={8}
           style={{
             marginTop: "10px",
             display: "grid",
@@ -59,6 +60,7 @@ const ViewRestaurant = ({ location }) => {
             style={{
               display: "grid",
               rowGap: "16px",
+              maxHeight: "540px",
               padding: "40px",
             }}
           >
