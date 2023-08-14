@@ -32,6 +32,11 @@ const RestaurantList = () => {
       "Restaurant Name": todo.name,
       "Officer In Charge Name": todo.officerInCharge,
       "Created Date": todo.createdAt,
+      "Registeration Name": todo.registrationName,
+      "Registeration No": todo.registrationNo,
+      Revenue: todo.revenue,
+      Latitude: todo.latitude,
+      Longtitude: todo.longitude,
     }));
 
     const worksheet = XLSX.utils.json_to_sheet(formattedData);
@@ -41,8 +46,10 @@ const RestaurantList = () => {
   };
 
   return (
-    <div>
-      <Button onClick={exportToExcel}>Export to Excel</Button>
+    <div style={{ display: "grid", rowGap: "15px " }}>
+      <div style={{ display: "flex", justifyContent: "flex-end" }}>
+        <Button onClick={exportToExcel}>Export to Excel</Button>
+      </div>
       <Table>
         <Thead>
           <Tr>
