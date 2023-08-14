@@ -42,7 +42,7 @@ const RestaurantList = () => {
     const worksheet = XLSX.utils.json_to_sheet(formattedData);
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, "Todo Data");
-    XLSX.writeFile(workbook, "todo_data.xlsx");
+    XLSX.writeFile(workbook, "Restaurant List.xlsx");
   };
 
   return (
