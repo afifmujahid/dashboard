@@ -6,7 +6,6 @@ const Cleanliness = ({ restaurantId }) => {
   const [todoData, setTodoData] = useState(null);
   const selectedRestaurant = restaurantId;
   const CLEANLINESS_CHECKLIST = useCleanliness(todoData);
-  const [isSubItemsChecked, setIsSubItemsChecked] = useState(false);
 
   useEffect(() => {
     async function fetchCleanliness() {
@@ -25,11 +24,22 @@ const Cleanliness = ({ restaurantId }) => {
       return (
         <Checkbox
           checked={true}
-          style={{ backgroundColor: "#004e5a", borderColor: "#004e5a" }}
+          style={{
+            backgroundColor: "#004e5a",
+            borderColor: "#004e5a",
+            cursor: "not-allowed",
+          }}
         />
       );
     } else {
-      return <Checkbox checked={false} />;
+      return (
+        <Checkbox
+          checked={false}
+          style={{
+            cursor: "not-allowed",
+          }}
+        />
+      );
     }
   };
   return (
