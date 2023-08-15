@@ -18,26 +18,42 @@ const EmployeeNumber = ({ restaurantId }) => {
     fetchEmployeeNumbers();
   }, [selectedRestaurant]);
 
+  const cellStyle = {
+    borderBottom: "1px solid black",
+    borderRight: "1px solid black",
+    padding: "8px",
+  };
+
+  const headerCellStyle = {
+    ...cellStyle,
+  };
+
   return (
     <div
       style={{
         display: "grid",
         gridTemplateColumns: "repeat(3, 1fr)",
-        rowGap: "16px",
-        gap: "16px",
+        borderLeft: "1px solid black",
+        borderTop: "1px solid black",
       }}
     >
-      <div />
-      <Typography fontWeight="semiBold">Management</Typography>
-      <Typography fontWeight="semiBold">Production</Typography>
-      <Typography fontWeight="semiBold">Muslim</Typography>
-      <Typography>Muslim Management: {todoData?.officerInCharge}</Typography>
-      <Typography>Muslim Production: {todoData?.name}</Typography>
-      <Typography fontWeight="semiBold">Non-Muslim</Typography>
-      <Typography>
-        Non-Muslim Management: {todoData?.registrationName}
+      <div style={headerCellStyle}></div>
+      <Typography style={headerCellStyle} fontWeight="semiBold">
+        Management
       </Typography>
-      <Typography>Non-Muslim Production: {todoData?.registrationNo}</Typography>
+      <Typography style={headerCellStyle} fontWeight="semiBold">
+        Production
+      </Typography>
+      <Typography style={headerCellStyle} fontWeight="semiBold">
+        Muslim
+      </Typography>
+      <Typography style={cellStyle}>{todoData?.officerInCharge}</Typography>
+      <Typography style={cellStyle}>{todoData?.name}</Typography>
+      <Typography style={headerCellStyle} fontWeight="semiBold">
+        Non-Muslim
+      </Typography>
+      <Typography style={cellStyle}>{todoData?.registrationName}</Typography>
+      <Typography style={cellStyle}>{todoData?.registrationNo}</Typography>
     </div>
   );
 };
