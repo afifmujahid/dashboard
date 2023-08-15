@@ -27,21 +27,33 @@ const RestaurantList = () => {
   }, []);
 
   const exportToExcel = () => {
-    const formattedData = todoData.map((todo) => ({
-      "No.": todo.id,
+    const formattedData = todoData.map((todo, index) => ({
+      "No.": index + 1,
       "Restaurant Name": todo.name,
       "Officer In Charge Name": todo.officerInCharge,
       "Created Date": todo.createdAt,
       "Registeration Name": todo.registrationName,
       "Registeration No": todo.registrationNo,
-      Revenue: todo.revenue,
+      "Company Status": todo.status,
+      "Company Address": todo.address,
+      District: todo.district,
+      Postcode: todo.postcode,
+      City: todo.city,
+      State: todo.state,
       Latitude: todo.latitude,
       Longtitude: todo.longitude,
+      "Phone Number": todo.phone,
+      Email: todo.email,
+      "Number of Shifts": todo.numberOfShift,
+      "Annual Sales Revenue RM": todo.revenue,
+      "Business Type": todo.businessType,
+      "Type of Industry": todo.industryType,
+      "Product Market": todo.productMarket,
     }));
 
     const worksheet = XLSX.utils.json_to_sheet(formattedData);
     const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Todo Data");
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Restaurant List");
     XLSX.writeFile(workbook, "Restaurant List.xlsx");
   };
 
