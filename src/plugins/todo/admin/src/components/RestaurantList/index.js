@@ -31,7 +31,7 @@ const RestaurantList = () => {
       "No.": index + 1,
       "Restaurant Name": todo.name,
       "Officer In Charge Name": todo.officerInCharge,
-      "Created Date": todo.createdAt,
+      "Created Date": new Date(todo.createdAt).toLocaleDateString("en-GB"),
       "Registeration Name": todo.registrationName,
       "Registeration No": todo.registrationNo,
       "Company Status": todo.status,
