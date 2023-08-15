@@ -111,7 +111,7 @@ const RestaurantList = () => {
                 </Td>
                 <Td>
                   <Typography textColor="neutral800">
-                    {todo.createdAt}
+                    {new Date(todo.createdAt).toISOString().split("T")[0]}
                   </Typography>
                 </Td>
                 <Td>
