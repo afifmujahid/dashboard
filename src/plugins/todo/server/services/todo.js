@@ -5,6 +5,10 @@ module.exports = ({ strapi }) => ({
     return await strapi.entityService.findMany("plugin::todo.todo", query);
   },
 
+  async findOne(id) {
+    return await strapi.entityService.findOne("plugin::todo.todo", id);
+  },
+
   async delete(id) {
     return await strapi.entityService.delete("plugin::todo.todo", id);
   },
